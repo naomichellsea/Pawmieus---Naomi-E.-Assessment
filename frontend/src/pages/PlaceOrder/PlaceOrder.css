@@ -1,0 +1,124 @@
+/* Main Container for Place Order */
+.place-order {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 50px;
+    margin: 100px 0px;
+}
+
+.place-order-left {
+    width: 100%;
+    max-width: max(30%, 500px);
+}
+
+.place-order-left .title {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+
+.place-order-left input {
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #C5C5C5;
+    border-radius: 4px;
+    outline-color: tomato;
+}
+
+.place-order-left .multi-field {
+    display: flex;
+    gap: 10px;
+}
+
+.place-order-right {
+    width: 100%;
+    max-width: max(40%, 500px);
+}
+
+/* Cart Totals */
+.cart-total {
+    margin-bottom: 20px;
+}
+
+/* Payment Options - Side by Side */
+.payment-options {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Common styles for Payment Buttons */
+.payment-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    border: 2px solid tomato;
+    background: none;
+    color: tomato;
+    width: 100%;
+    text-align: center;
+}
+
+/* Highlight the selected payment method */
+.payment-button.selected {
+    background: tomato;
+    color: white;
+}
+
+/* Razorpay button specific styles */
+.razorpay {
+    border: 2px solid #0070f3;
+    color: #0070f3;
+}
+
+.razorpay.selected {
+    background: #0070f3;
+    color: white;
+}
+
+/* Razorpay Logo Button Styling */
+.razorpay-logo {
+    width: 120px;
+    height: auto;
+}
+
+/* "Place Order" Button */
+.place-order-submit {
+    background: none;
+    color: tomato;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid tomato;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.place-order-submit:hover {
+    background: tomato;
+    color: white !important;
+    text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+    .place-order {
+        flex-direction: column;
+    }
+    .payment-options {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

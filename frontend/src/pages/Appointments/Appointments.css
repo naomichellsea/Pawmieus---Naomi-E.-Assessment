@@ -1,0 +1,165 @@
+/* src/pages/Appointments/Appointments.css */
+
+/* Import fonts globally */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: url('/images/background.jpg') center/cover no-repeat fixed;
+  position: relative;
+  font-family: 'Outfit', sans-serif;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3); /* Soft white overlay */
+  z-index: -1;
+  backdrop-filter: blur(4px);
+}
+
+.app {
+  width: 80%;
+  margin: auto;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1050px) {
+  .app {
+    width: 90%;
+  }
+}
+
+/* Appointments Page Styles */
+.appointments-container {
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(5px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.appointments-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.heading-section {
+  border-left: 5px solid #ff7e5f; /* Gradient-like warm color */
+  padding-left: 20px;
+  margin-bottom: 40px;
+}
+
+.text-primary {
+  color: #ff7e5f;
+}
+
+.display-5 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styling */
+.appointment-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: linear-gradient(145deg, #ffffff, #f3f3f3);
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.appointment-form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.appointment-form input,
+.appointment-form select {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.appointment-form input:focus,
+.appointment-form select:focus {
+  border-color: #ff7e5f;
+  box-shadow: 0 0 8px rgba(255, 126, 95, 0.3);
+  outline: none;
+}
+
+.appointment-form button {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.appointment-form button:hover {
+  background: linear-gradient(90deg, #feb47b, #ff7e5f);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 126, 95, 0.4);
+}
+
+/* Confirmation message */
+.confirmation-message {
+  margin-top: 20px;
+  padding: 18px;
+  background: linear-gradient(90deg, #28a745, #5cd65c);
+  color: #fff;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Read More Button */
+.read-more {
+  display: inline-block;
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  color: white !important;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  border: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.read-more:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 126, 95, 0.5);
+  text-decoration: none;
+  color: white !important;
+}

@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+/* GLOBAL STYLES & LUXURY BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+  scroll-behavior: smooth;
+  color: #333333; /* Default rich charcoal text color */
+  /* Enhance text rendering for a premium feel */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  /* Set background image and use a sophisticated overlay */
+  background: url('/images/samplebg.jpg') center/cover no-repeat fixed; 
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* Luxury Cream/Off-White Film Overlay */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Using a subtle, warm, off-white color for an elegant paper-like effect */
+  background: rgba(253, 252, 246, 0.7); 
+  z-index: -1;
+  pointer-events: none; /* Ensures the overlay doesn't block clicks */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.app {
+  width: 80%;
+  max-width: 1400px;
+  margin: auto;
+  padding-bottom: 50px; 
+}
+
+/* UTILITY / ANIMATIONS */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* BUTTONS & CALL-TO-ACTIONS (Luxurious Styling) */
+.read-more {
+  /* Elegant Gold/Brass Accent Color for Pawmieus */
+  --accent-color: #A68A5D; 
+  background: none;
+  color: var(--accent-color) !important;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px; /* Subtle spacing for luxury typography */
+  text-decoration: none;
+  border: 1px solid var(--accent-color);
+  padding: 10px 22px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle lift */
+}
+
+.read-more:hover {
+  background: var(--accent-color);
+  color: #FFFFFF !important;
+  border-color: var(--accent-color);
+  /* Deeper shadow on hover for a polished, 3D effect */
+  box-shadow: 0 4px 10px rgba(166, 138, 93, 0.4); 
+}
+
+/* MEDIA QUERIES */
+@media (max-width:1050px) {
+  .app {
+    width: 90%;
+  }
+}

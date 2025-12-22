@@ -1,0 +1,98 @@
+/* --- Sidebar Container --- */
+.sidebar {
+    width: 20%; /* Slightly wider for better breathing room */
+    min-height: 100vh;
+    background-color: #ffffff;
+    border-right: 1px solid #f0f0f0; /* Very subtle divider */
+    font-size: 15px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.sidebar-options {
+    padding-top: 50px;
+    padding-left: 20px; /* Aligns content */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* --- The Link Item (Inactive) --- */
+.sidebar-option {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    
+    /* Remove old borders */
+    border: none;
+    border-radius: 8px 0 0 8px; /* Rounded on left, flat on right */
+    
+    cursor: pointer;
+    color: #666; /* Softer text color */
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* --- Hover Effect --- */
+.sidebar-option:hover {
+    color: #333;
+    background-color: #f9f9f9;
+    padding-left: 20px; /* Subtle slide animation */
+}
+
+/* --- Active State (Selected Tab) --- */
+.sidebar-option.active {
+    background-color: #fff4f8; /* Very light brand pink */
+    color: #c21569; /* Brand Pink Text */
+    border-right: 4px solid #c21569; /* Accent bar on the right edge */
+    font-weight: 600;
+}
+
+/* Optional: Add a subtle glow to the active item's icon */
+.sidebar-option.active img {
+    opacity: 1;
+    filter: drop-shadow(0 2px 4px rgba(194, 21, 105, 0.2));
+}
+
+/* --- Icons --- */
+.sidebar-option img {
+    width: 22px;
+    opacity: 0.7; /* Slightly faded when inactive */
+    transition: 0.3s;
+}
+
+.sidebar-option:hover img {
+    opacity: 1;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+    .sidebar {
+        width: 80px; /* Fixed width for icon-only view */
+        padding: 0;
+        text-align: center;
+    }
+    
+    .sidebar-options {
+        padding-left: 0; /* Remove padding to center icons */
+        align-items: center;
+    }
+
+    .sidebar-option {
+        padding: 15px;
+        border-radius: 12px; /* Fully rounded on mobile */
+        justify-content: center;
+        width: 50px; /* Square shape */
+    }
+
+    .sidebar-option p {
+       display: none; /* Hide text */
+    }
+    
+    /* Adjust active border for mobile */
+    .sidebar-option.active {
+        border-right: none;
+        border: 1px solid #c21569; /* Full border on mobile */
+    }
+}

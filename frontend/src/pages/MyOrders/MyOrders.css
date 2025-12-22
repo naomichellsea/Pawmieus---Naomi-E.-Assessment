@@ -1,0 +1,160 @@
+/* --- Wrapper --- */
+.my-orders {
+    margin: 50px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.my-orders h2 {
+    font-size: 24px;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 25px;
+    border-left: 5px solid #c21569; /* Brand Pink */
+    padding-left: 15px;
+}
+
+.my-orders .container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* --- The Card --- */
+.my-orders-order {
+    display: grid;
+    /* Icon | Items | Amount | Count | Status | Button */
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1.5fr 1fr;
+    align-items: center;
+    gap: 20px;
+    font-size: 14px;
+    padding: 25px 30px;
+    color: #555;
+    background: #fff;
+    
+    /* Unique Card Styling */
+    border-radius: 12px;
+    border: 1px solid #f0f0f0;
+    border-left: 6px solid #c21569; /* Pink accent on left */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+}
+
+/* Hover Lift Effect */
+.my-orders-order:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(166, 138, 93, 0.15); /* Soft Gold Shadow */
+    border-left-color: #A68A5D; /* Border turns Gold on hover */
+}
+
+/* --- The Icon --- */
+.my-orders-order img {
+    width: 45px;
+    padding: 8px;
+    background: #fff4f8; /* Light pink circle bg */
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+/* --- Text & Labels --- */
+.my-orders-order p {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    line-height: 1.4;
+}
+
+/* Create "Labels" for data using CSS only if needed, 
+   but logic suggests adding <strong> tags in JSX (see below) */
+.my-orders-order p strong {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #999;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+/* --- Status Indicators --- */
+.my-orders-order p span {
+    color: #c21569;
+    font-size: 18px;
+    line-height: 0;
+    position: relative;
+    top: 2px;
+}
+
+.my-orders-order p b {
+    font-weight: 600;
+    color: #333;
+    font-size: 13px;
+    background: #fdf6f2; /* Light Gold/Beige bg */
+    color: #A68A5D;
+    padding: 4px 12px;
+    border-radius: 15px;
+    display: inline-block;
+    width: fit-content;
+}
+
+/* --- The Button --- */
+.my-orders-order button {
+    background: linear-gradient(135deg, #fff 0%, #fff 100%);
+    color: #444;
+    font-weight: 600;
+    border: 1px solid #e0e0e0;
+    padding: 10px 0;
+    width: 100%;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 13px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.my-orders-order button:hover {
+    background: linear-gradient(135deg, #c21569, #A68A5D); /* Brand Gradient */
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 5px 15px rgba(194, 21, 105, 0.3);
+    transform: translateY(-2px);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+    .my-orders-order {
+        /* Switch to vertical stack */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        position: relative;
+    }
+
+    /* Icon placement on mobile */
+    .my-orders-order img {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+    }
+
+    .my-orders-order p {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #f9f9f9;
+        padding-bottom: 8px;
+        font-size: 13px;
+    }
+    
+    .my-orders-order p:last-of-type {
+        border-bottom: none;
+    }
+
+    .my-orders-order button {
+        margin-top: 10px;
+        background: #f8f8f8;
+    }
+}

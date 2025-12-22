@@ -1,0 +1,310 @@
+/* Shopping Cart CSS
+  Palette:
+  - Primary (Magenta): #c21569
+  - Secondary (Gold): #A68A5D
+  - Background: #FFFFFF / #FDFCFB
+  - Text: #333 (Headings), #666 (Body)
+  - Borders: #EAEAEA
+*/
+
+/* --- Main Cart Container --- */
+.cart {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 30px;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.cart hr {
+    height: 1px;
+    background-color: #EAEAEA;
+    border: none;
+}
+
+/* --- Cart Items Header --- */
+.cart-items-title {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+    align-items: center;
+    color: #777;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #EAEAEA;
+}
+
+/* --- Cart Item Row --- */
+.cart-items-item {
+    margin: 20px 0px;
+    color: #333;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+    align-items: center;
+    font-size: 1rem; /* Base size for item text */
+}
+
+.cart-items-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.cart-items-item p {
+  /* For item name */
+  font-weight: 500;
+}
+
+/* Assuming this 'div' is the quantity display */
+.cart-items-item div {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #333;
+    
+    /* Resetting default styles from original */
+    max-width: none;
+    text-align: left;
+    border: none;
+    padding: 0;
+}
+
+.cart-items-remove-icon {
+    cursor: pointer;
+    color: #888;
+    transition: color 0.3s ease;
+    font-size: 1.2rem; /* Make icon easier to click */
+    text-align: center;
+}
+
+.cart-items-remove-icon:hover {
+    color: #c21569; /* Use primary color for remove */
+}
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-controls button {
+    width: 30px;
+    height: 30px;
+    background-color: #A68A5D; /* Updated color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(166, 138, 93, 0.3);
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quantity-controls button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(166, 138, 93, 0.5);
+}
+
+.quantity-controls button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(166, 138, 93, 0.3);
+}
+
+.quantity-controls span {
+    min-width: 25px;
+    text-align: center;
+    font-weight: 500;
+    color: #454545;
+    font-size: 14px;
+}
+
+/* --- Cart Bottom Section (Total & Promo) --- */
+.cart-bottom {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    gap: max(5vw, 30px);
+    flex-wrap: wrap; /* Allow wrapping on medium screens */
+}
+
+/* --- Cart Total Card --- */
+.cart-total {
+    flex: 1;
+    min-width: 300px; /* Ensure it doesn't get too squished */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #FDFCFB; /* Soft off-white */
+    padding: 25px 30px;
+    border-radius: 12px;
+    border: 1px solid #F0F0F0;
+}
+
+.cart-total h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.cart-total-details {
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+    font-size: 1rem;
+}
+
+.cart-total-details.total {
+  /* Style for the final "Total" row */
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.cart-total hr {
+    margin: 10px 0px;
+}
+
+.cart-total button {
+    border: none;
+    color: white;
+    /* Apply a gradient for a richer look */
+    background: linear-gradient(90deg, #c21569, #a8125c);
+    width: 100%;
+    padding: 14px 0px;
+    border-radius: 30px; /* Pill shape */
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.cart-total button:hover {
+    box-shadow: 0 5px 15px rgba(194, 21, 105, 0.3);
+    transform: translateY(-2px);
+}
+
+/* --- Promo Code Section --- */
+.cart-promocode {
+    flex: 1;
+    min-width: 300px;
+}
+
+.cart-promocode p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.cart-promocode-input {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+    border-radius: 30px; /* Pill shape */
+    border: 1px solid #EAEAEA;
+    overflow: hidden; /* To contain the button's shape */
+    transition: box-shadow 0.3s ease;
+}
+
+.cart-promocode-input:focus-within {
+  /* Add glow when user is typing */
+  box-shadow: 0 0 0 3px rgba(166, 138, 93, 0.2);
+  border-color: #A68A5D;
+}
+
+.cart-promocode-input input {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 14px 20px;
+    font-size: 1rem;
+    flex-grow: 1; /* Allow input to take available space */
+    color: #333;
+}
+
+.cart-promocode-input button {
+    width: auto; /* Let padding define width */
+    padding: 14px 25px;
+    background-color: #A68A5D; /* Use secondary color */
+    border: none;
+    color: white;
+    border-radius: 0; /* Button is flush with input */
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cart-promocode-input button:hover {
+    background-color: #8c734d; /* Darker gold on hover */
+}
+
+/* --- Responsive --- */
+@media(max-width: 750px) {
+    .cart {
+      padding: 20px;
+      margin: 30px auto;
+    }
+
+    .cart-bottom {
+        flex-direction: column-reverse; /* Stack total on top of promo */
+        gap: 30px;
+    }
+    
+    .cart-promocode {
+        justify-content: start;
+    }
+
+    /* Simplify grid on mobile for readability */
+    .cart-items-title {
+        display: none; /* Hide title row */
+    }
+
+    .cart-items-item {
+        grid-template-columns: 60px 1fr; /* Image and content */
+        gap: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #EAEAEA;
+        align-items: flex-start;
+    }
+
+    .cart-items-item img {
+      grid-row: 1 / span 4; /* Make image span all content rows */
+    }
+
+    /* Stack item details vertically */
+    .cart-items-item p,
+    .cart-items-item div {
+        grid-column: 2; /* All text content in second column */
+        text-align: left;
+    }
+    
+    .cart-items-item p {
+      font-size: 0.95rem;
+    }
+
+    .cart-items-item div {
+      font-size: 1rem;
+      margin: 5px 0;
+    }
+
+    .cart-items-remove-icon {
+        grid-column: 2;
+        text-align: left;
+        margin-top: 10px;
+        color: #c21569;
+    }
+}

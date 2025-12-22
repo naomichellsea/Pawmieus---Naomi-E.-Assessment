@@ -1,0 +1,160 @@
+/* Overlay */
+.login-popup {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: grid;
+    place-items: center;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Container */
+.login-popup-container {
+    width: clamp(300px, 23vw, 400px);
+    background: linear-gradient(145deg, #fff 0%, #fdf6f2 100%);
+    color: #808080;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 30px 35px;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.5s ease forwards;
+}
+
+/* Title */
+.login-popup-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #333;
+}
+.login-popup-title img {
+    width: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.login-popup-title img:hover {
+    transform: rotate(90deg);
+}
+
+/* Inputs */
+.login-popup-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.login-popup-inputs input {
+    outline: none;
+    border: 2px solid #A68A5D;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+.login-popup-inputs input:focus {
+    border-color: #c21569;
+    box-shadow: 0 0 8px #c21569;
+}
+
+/* Button */
+.login-popup-container button {
+    border: none;
+    padding: 12px 0;
+    border-radius: 8px;
+    color: white;
+    background: linear-gradient(120deg, #c21569, #A68A5D);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.login-popup-container button:hover {
+    background: linear-gradient(120deg, #A68A5D, #c21569);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(194, 21, 105, 0.3);
+}
+
+/* Conditions / Checkbox */
+.login-popup-condition {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: -10px;
+}
+.login-popup-condition input {
+    margin-top: 0;
+}
+
+/* Links */
+.login-popup p span {
+    color: #c21569;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.login-popup p span:hover {
+    text-decoration: underline;
+    color: #A68A5D;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+/* ... Your existing CSS ... */
+
+/* NEW: Separator Style */
+.login-popup-separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #808080;
+    font-size: 14px;
+    margin: -10px 0; /* Adjust spacing as needed */
+}
+.login-popup-separator::before,
+.login-popup-separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #e0e0e0;
+}
+.login-popup-separator span {
+    padding: 0 10px;
+    font-weight: 500;
+}
+
+/* NEW: Google Button specific styles */
+.login-popup-container button.google-btn {
+    background: #fff;
+    color: #555;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: -10px; /* Pull it up slightly */
+    transition: all 0.3s ease;
+}
+
+.login-popup-container button.google-btn:hover {
+    background: #f8f8f8;
+    border-color: #c21569; /* Uses your theme pink for hover border */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.login-popup-container button.google-btn svg {
+    /* Ensures the SVG icon stays crisp */
+    min-width: 20px;
+}

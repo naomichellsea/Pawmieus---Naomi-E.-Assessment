@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Brand Identity */
+  --primary: #c21569;   /* Pink */
+  --secondary: #A68A5D; /* Gold */
+  --bg-body: #f8f9fa;   /* Soft dashboard gray */
+  --text-dark: #333333;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-body);
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased; /* Sharper text */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.3s;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #dcdcdc, transparent); /* Fading line */
+  margin: 10px 0;
+}
+
+.app-content {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cursor {
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.cursor:active {
+  transform: scale(0.95);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}

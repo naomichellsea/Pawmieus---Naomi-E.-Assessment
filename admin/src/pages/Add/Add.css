@@ -1,0 +1,159 @@
+/* --- The Main Card Container --- */
+.add {
+    width: 70%;
+    margin-left: max(5vw, 25px);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: #555;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    
+    /* Card Aesthetic */
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f0f0f0;
+}
+
+/* --- Form Layout --- */
+.add form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* --- Labels (Assuming <p> tags are used for labels) --- */
+.add p {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* --- Image Upload Area --- */
+.add-img-upload {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-img-upload img {
+    width: 120px;
+    height: 120px; /* Forces square ratio */
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    border: 2px dashed #dcdcdc; /* Dashed border suggests "Upload" */
+    transition: all 0.3s ease;
+    padding: 5px; /* Spacing between image and border */
+}
+
+.add-img-upload img:hover {
+    border-color: #c21569; /* Pink on hover */
+    background-color: #fff4f8;
+}
+
+/* --- Input Fields Wrapper --- */
+.add-product-name, 
+.add-product-description {
+    width: 100%; /* Use full width of container, capped below */
+    max-width: 450px; /* Cap width so it doesn't look stretched */
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- The Inputs & Textarea --- */
+.add-product-name input, 
+.add-product-description textarea,
+.add-category-price select,
+.add-category-price input {
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #fafafa;
+    outline: none;
+    color: #444;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+/* --- Input Focus State (The Glow) --- */
+.add input:focus, 
+.add textarea:focus, 
+.add select:focus {
+    border-color: #c21569; /* Brand Pink */
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(194, 21, 105, 0.05); /* Soft pink glow ring */
+}
+
+.add-product-description textarea {
+    resize: vertical; /* User can resize height only */
+    min-height: 100px;
+}
+
+/* --- Category & Price Row --- */
+.add-category-price {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap; /* Allows stacking on small screens */
+}
+
+.add-category-price > div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- The "ADD" Button --- */
+.add-btn {
+    width: 150px;
+    border: none;
+    padding: 12px;
+    
+    /* Brand Gradient */
+    background: linear-gradient(135deg, #c21569, #A68A5D);
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    
+    border-radius: 30px; /* Pill Shape */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(194, 21, 105, 0.2);
+    margin-top: 10px;
+}
+
+.add-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(194, 21, 105, 0.35);
+    filter: brightness(1.1);
+}
+
+.add-btn:active {
+    transform: scale(0.98);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .add {
+        width: 90%; /* Use more screen on mobile */
+        margin-left: auto;
+        margin-right: auto;
+        padding: 25px;
+    }
+    
+    .add-category-price {
+        gap: 15px;
+    }
+    
+    .add-category-price select, 
+    .add-category-price input {
+        width: 100%; /* Full width on mobile */
+        max-width: none;
+    }
+    
+    .add-product-name, 
+    .add-product-description {
+        max-width: 100%;
+    }
+}

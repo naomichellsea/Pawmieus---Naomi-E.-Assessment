@@ -1,0 +1,98 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 4%;
+    background-color: #ffffff;
+    
+    /* Sticky Header Effect */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    
+    /* Soft Shadow to separate from content */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+    border-bottom: 1px solid #f1f1f1;
+}
+
+/* --- Logo --- */
+.navbar .logo {
+    width: max(10%, 80px);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.navbar .logo:hover {
+    transform: scale(1.05);
+}
+
+/* --- Center Title (New) --- */
+.navbar-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.2;
+}
+
+.navbar-title p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    
+    /* Gradient Text Setup */
+    background: linear-gradient(90deg, #c21569, #A68A5D);
+    
+    /* 1. Vendor Prefix (Required for Safari/Chrome) */
+    -webkit-background-clip: text;
+    
+    /* 2. Standard Property (Fixes the warning) */
+    background-clip: text;
+    
+    /* Fill color must be transparent to show the background */
+    -webkit-text-fill-color: transparent;
+    
+    letter-spacing: 0.5px;
+}
+
+.navbar-title span {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #888;
+    font-weight: 500;
+}
+
+/* --- Profile Image --- */
+.navbar .profile {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    
+    /* Profile Ring */
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #f0f0f0; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.navbar .profile:hover {
+    box-shadow: 0 0 0 2px #c21569; /* Pink ring on hover */
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+    .navbar-title p {
+        font-size: 16px;
+    }
+    .navbar-title span {
+        font-size: 9px;
+    }
+    .navbar .logo {
+        width: 70px;
+    }
+    .navbar .profile {
+        width: 35px;
+        height: 35px;
+    }
+}
