@@ -1,9 +1,9 @@
-/* --- Container --- */
+
 .my-appointments {
     margin: 50px auto;
-    max-width: 1200px; /* Prevents it from stretching too wide on huge screens */
+    max-width: 1200px; 
     padding: 0 20px;
-    font-family: 'Poppins', sans-serif; /* Ensure you have a nice font loaded */
+    font-family: 'Poppins', sans-serif; 
 }
 
 .my-appointments h2 {
@@ -11,7 +11,7 @@
     color: #333;
     font-weight: 600;
     margin-bottom: 25px;
-    border-left: 5px solid #c21569; /* Brand Pink accent */
+    border-left: 5px solid #c21569; 
     padding-left: 15px;
 }
 
@@ -21,10 +21,8 @@
     gap: 25px;
 }
 
-/* --- The Card Item --- */
 .my-appointments-item {
     display: grid;
-    /* Adjusted grid for better spacing */
     grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr; 
     align-items: center;
     gap: 20px;
@@ -32,31 +30,27 @@
     padding: 25px 30px;
     background: #ffffff;
     
-    /* Modern Styling */
     border-radius: 12px;
-    border: 1px solid #f0f0f0; /* Very subtle border */
-    border-left: 6px solid #A68A5D; /* Gold accent on the left */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04); /* Soft shadow */
+    border: 1px solid #f0f0f0; 
+    border-left: 6px solid #A68A5D; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04); 
     transition: all 0.3s ease;
 }
 
-/* Hover Effect: Lifts the card up slightly */
 .my-appointments-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(194, 21, 105, 0.1); /* Pinkish shadow on hover */
+    box-shadow: 0 10px 25px rgba(194, 21, 105, 0.1); 
     border-color: #ffe6f0;
 }
 
-/* --- Typography inside the card --- */
 .my-appointments-item p {
     margin: 0;
     color: #555;
     display: flex;
-    flex-direction: column; /* Stacks label and value if you add labels later */
+    flex-direction: column; 
     gap: 5px;
 }
 
-/* The labels (strong/bold text) */
 .my-appointments-item p strong {
     font-size: 12px;
     text-transform: uppercase;
@@ -64,12 +58,11 @@
     color: #999;
     font-weight: 600;
     margin-bottom: 2px;
-    display: block; /* Forces it to line break */
+    display: block; 
 }
 
-/* The Status Dot */
 .my-appointments-item p span {
-    color: #c21569; /* Brand Pink */
+    color: #c21569; 
     font-size: 20px;
     line-height: 0;
     position: relative;
@@ -77,25 +70,25 @@
     margin-right: 5px;
 }
 
-/* The Status Text */
+
 .my-appointments-item p b {
     font-weight: 600;
     color: #333;
-    background: #fff4f8; /* Light pink background pill */
+    background: #fff4f8; 
     padding: 5px 12px;
     border-radius: 20px;
     font-size: 13px;
     display: inline-block;
 }
 
-/* --- The Button --- */
+
 .my-appointments-item button {
     background: linear-gradient(135deg, #fff 0%, #fff 100%);
     color: #444;
     font-weight: 600;
     border: 1px solid #e0e0e0;
     padding: 10px 20px;
-    border-radius: 30px; /* Pill shape */
+    border-radius: 30px; 
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 13px;
@@ -104,17 +97,15 @@
 }
 
 .my-appointments-item button:hover {
-    background: linear-gradient(135deg, #c21569, #A68A5D); /* Brand Gradient */
+    background: linear-gradient(135deg, #c21569, #A68A5D); 
     color: white !important;
     border-color: transparent;
     box-shadow: 0 5px 15px rgba(194, 21, 105, 0.3);
     transform: scale(1.05);
 }
 
-/* --- Responsive Design --- */
 @media (max-width: 900px) {
     .my-appointments-item {
-        /* Switch from Grid to Stacked Flex on Mobile */
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -136,7 +127,6 @@
         border-bottom: none;
     }
 
-    /* Move button to full width on mobile */
     .my-appointments-item button {
         width: 100%;
         margin-top: 10px;

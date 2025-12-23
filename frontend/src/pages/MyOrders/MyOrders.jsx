@@ -41,8 +41,6 @@ const MyOrders = () => {
           data.map((order, index) => (
             <div key={index} className="my-orders-order">
               <img src={assets.parcel_icon} alt="Parcel" />
-              
-              {/* Column 1: Items */}
               <p>
                 <strong>Order Items</strong>
                 {order.items.map((item, idx) =>
@@ -52,25 +50,21 @@ const MyOrders = () => {
                 )}
               </p>
 
-              {/* Column 2: Amount */}
               <p>
                 <strong>Total Amount</strong>
                 {currency}{order.amount}.00
               </p>
 
-              {/* Column 3: Quantity */}
               <p>
                 <strong>Quantity</strong>
                 {order.items.length} Items
               </p>
 
-              {/* Column 4: Status */}
               <p>
                 <strong>Status</strong>
                 <span>&#x25cf;</span> <b>{order.status}</b>
               </p>
 
-              {/* Column 5: Button */}
               <button onClick={fetchOrders}>Track Order</button>
             </div>
           ))

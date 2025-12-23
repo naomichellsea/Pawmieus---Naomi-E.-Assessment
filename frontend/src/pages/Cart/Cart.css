@@ -1,13 +1,4 @@
-/* Shopping Cart CSS
-  Palette:
-  - Primary (Magenta): #c21569
-  - Secondary (Gold): #A68A5D
-  - Background: #FFFFFF / #FDFCFB
-  - Text: #333 (Headings), #666 (Body)
-  - Borders: #EAEAEA
-*/
 
-/* --- Main Cart Container --- */
 .cart {
     max-width: 1200px;
     margin: 60px auto;
@@ -29,7 +20,6 @@
     border: none;
 }
 
-/* --- Cart Items Header --- */
 .cart-items-title {
     display: grid;
     grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
@@ -42,14 +32,13 @@
     border-bottom: 1px solid #EAEAEA;
 }
 
-/* --- Cart Item Row --- */
 .cart-items-item {
     margin: 20px 0px;
     color: #333;
     display: grid;
     grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
     align-items: center;
-    font-size: 1rem; /* Base size for item text */
+    font-size: 1rem; 
 }
 
 .cart-items-item img {
@@ -60,17 +49,14 @@
 }
 
 .cart-items-item p {
-  /* For item name */
   font-weight: 500;
 }
 
-/* Assuming this 'div' is the quantity display */
 .cart-items-item div {
     font-weight: 600;
     font-size: 1rem;
     color: #333;
     
-    /* Resetting default styles from original */
     max-width: none;
     text-align: left;
     border: none;
@@ -81,12 +67,12 @@
     cursor: pointer;
     color: #888;
     transition: color 0.3s ease;
-    font-size: 1.2rem; /* Make icon easier to click */
+    font-size: 1.2rem; 
     text-align: center;
 }
 
 .cart-items-remove-icon:hover {
-    color: #c21569; /* Use primary color for remove */
+    color: #c21569; 
 }
 .quantity-controls {
     display: flex;
@@ -97,7 +83,7 @@
 .quantity-controls button {
     width: 30px;
     height: 30px;
-    background-color: #A68A5D; /* Updated color */
+    background-color: #A68A5D;
     color: white;
     border: none;
     border-radius: 8px;
@@ -129,23 +115,21 @@
     font-size: 14px;
 }
 
-/* --- Cart Bottom Section (Total & Promo) --- */
 .cart-bottom {
     margin-top: 60px;
     display: flex;
     justify-content: space-between;
     gap: max(5vw, 30px);
-    flex-wrap: wrap; /* Allow wrapping on medium screens */
+    flex-wrap: wrap; 
 }
 
-/* --- Cart Total Card --- */
 .cart-total {
     flex: 1;
-    min-width: 300px; /* Ensure it doesn't get too squished */
+    min-width: 300px; 
     display: flex;
     flex-direction: column;
     gap: 20px;
-    background: #FDFCFB; /* Soft off-white */
+    background: #FDFCFB; 
     padding: 25px 30px;
     border-radius: 12px;
     border: 1px solid #F0F0F0;
@@ -166,7 +150,6 @@
 }
 
 .cart-total-details.total {
-  /* Style for the final "Total" row */
   font-weight: 700;
   font-size: 1.1rem;
   color: #333;
@@ -179,11 +162,10 @@
 .cart-total button {
     border: none;
     color: white;
-    /* Apply a gradient for a richer look */
     background: linear-gradient(90deg, #c21569, #a8125c);
     width: 100%;
     padding: 14px 0px;
-    border-radius: 30px; /* Pill shape */
+    border-radius: 30px; 
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
@@ -196,7 +178,6 @@
     transform: translateY(-2px);
 }
 
-/* --- Promo Code Section --- */
 .cart-promocode {
     flex: 1;
     min-width: 300px;
@@ -213,14 +194,13 @@
     justify-content: space-between;
     align-items: center;
     background-color: #FFFFFF;
-    border-radius: 30px; /* Pill shape */
+    border-radius: 30px;
     border: 1px solid #EAEAEA;
-    overflow: hidden; /* To contain the button's shape */
+    overflow: hidden; 
     transition: box-shadow 0.3s ease;
 }
 
 .cart-promocode-input:focus-within {
-  /* Add glow when user is typing */
   box-shadow: 0 0 0 3px rgba(166, 138, 93, 0.2);
   border-color: #A68A5D;
 }
@@ -231,17 +211,17 @@
     outline: none;
     padding: 14px 20px;
     font-size: 1rem;
-    flex-grow: 1; /* Allow input to take available space */
+    flex-grow: 1;
     color: #333;
 }
 
 .cart-promocode-input button {
-    width: auto; /* Let padding define width */
+    width: auto; 
     padding: 14px 25px;
-    background-color: #A68A5D; /* Use secondary color */
+    background-color: #A68A5D; 
     border: none;
     color: white;
-    border-radius: 0; /* Button is flush with input */
+    border-radius: 0;
     font-weight: 600;
     font-size: 0.95rem;
     cursor: pointer;
@@ -249,10 +229,9 @@
 }
 
 .cart-promocode-input button:hover {
-    background-color: #8c734d; /* Darker gold on hover */
+    background-color: #8c734d; 
 }
 
-/* --- Responsive --- */
 @media(max-width: 750px) {
     .cart {
       padding: 20px;
@@ -260,7 +239,7 @@
     }
 
     .cart-bottom {
-        flex-direction: column-reverse; /* Stack total on top of promo */
+        flex-direction: column-reverse; 
         gap: 30px;
     }
     
@@ -268,13 +247,12 @@
         justify-content: start;
     }
 
-    /* Simplify grid on mobile for readability */
     .cart-items-title {
-        display: none; /* Hide title row */
+        display: none; 
     }
 
     .cart-items-item {
-        grid-template-columns: 60px 1fr; /* Image and content */
+        grid-template-columns: 60px 1fr; 
         gap: 15px;
         padding-bottom: 15px;
         border-bottom: 1px solid #EAEAEA;
@@ -282,13 +260,12 @@
     }
 
     .cart-items-item img {
-      grid-row: 1 / span 4; /* Make image span all content rows */
+      grid-row: 1 / span 4; 
     }
 
-    /* Stack item details vertically */
     .cart-items-item p,
     .cart-items-item div {
-        grid-column: 2; /* All text content in second column */
+        grid-column: 2; 
         text-align: left;
     }
     

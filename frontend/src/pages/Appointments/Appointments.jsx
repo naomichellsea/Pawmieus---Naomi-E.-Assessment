@@ -1,12 +1,11 @@
-import React, { useState, useContext } from 'react'; // 1. Added useContext
+import React, { useState, useContext } from 'react'; 
 import './Appointments.css';
-import { StoreContext } from '../../Context/StoreContext'; // 2. Added StoreContext import
+import { StoreContext } from '../../Context/StoreContext';
 
 const Appointments = () => {
-  // 3. Get the correct URL (http://localhost:3000) from your Context
+
   const { url } = useContext(StoreContext);
 
-  // Form state
   const [petName, setPetName] = useState('');
   const [ownerName, setOwnerName] = useState('');
   const [contact, setContact] = useState('');
@@ -14,23 +13,18 @@ const Appointments = () => {
   const [appointmentDate, setAppointmentDate] = useState('');
   const [appointmentTime, setAppointmentTime] = useState('');
   
-  // Message & token state
   const [confirmationMessage, setConfirmationMessage] = useState('');
   const [token, setToken] = useState(localStorage.getItem('token'));
 
-  // Debug log for token
   console.log('Token being sent:', token);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Step 1: Check token
     if (!token) {
       setConfirmationMessage('You must login first to book an appointment.');
       return;
     }
 
-    // Step 2: Construct appointment data
     const appointmentData = {
       petName,
       ownerName,
@@ -43,8 +37,6 @@ const Appointments = () => {
     console.log('Booking Data:', appointmentData);
 
     try {
-      // Step 3: Send fetch request
-      // FIX: Changed hardcoded 'http://localhost:4000' to dynamic `${url}`
       const response = await fetch(`${url}/api/appointments/book`, {
         method: 'POST',
         headers: {
@@ -54,13 +46,10 @@ const Appointments = () => {
         body: JSON.stringify(appointmentData),
       });
 
-      // Step 4: Parse response
       const data = await response.json();
 
       if (response.ok) {
-        // Booking successful
         setConfirmationMessage(data.message || 'Your appointment has been booked successfully!');
-        // Optionally reset form
         setPetName('');
         setOwnerName('');
         setContact('');
@@ -68,12 +57,11 @@ const Appointments = () => {
         setAppointmentDate('');
         setAppointmentTime('');
       } else {
-        // Backend returned an error (401, 400, etc.)
         console.error('Booking failed:', data);
         setConfirmationMessage(data.message || 'Something went wrong. Please try again.');
       }
     } catch (error) {
-      // Network error or unexpected exception
+      //Network error or unexpected exception
       console.error('Fetch error:', error);
       setConfirmationMessage('An error occurred. Please try again.');
     }

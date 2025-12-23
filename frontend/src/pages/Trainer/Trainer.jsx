@@ -1,5 +1,5 @@
 import React from "react";
-import "./Trainer.css";  // We'll add the styles in Trainer.css
+import "./Trainer.css";  
 
 const Trainer = () => {
   const trainers = [
@@ -18,7 +18,6 @@ const Trainer = () => {
     { id: 13, name: "Trainer 13", title: "Leash Training for Dogs", videoUrl: "https://www.youtube.com/embed/HTXajoc4a3k" },
     { id: 14, name: "Trainer 14", title: "Behavior Modification Techniques", videoUrl: "https://www.youtube.com/embed/HTXajoc4a3k" },
     { id: 15, name: "Trainer 15", title: "Advanced Training Tips", videoUrl: "https://www.youtube.com/embed/HTXajoc4a3k" },
-    //{ id: 16, name: "Trainer 16", title: "Dog Socialization Training", videoUrl: "https://www.youtube.com/embed/HTXajoc4a3k" }
   ];    
 
   return (

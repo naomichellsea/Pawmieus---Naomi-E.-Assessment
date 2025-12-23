@@ -1,4 +1,4 @@
-// Cart.jsx
+
 import React, { useContext } from 'react'
 import './Cart.css'
 import { StoreContext } from '../../Context/StoreContext'
@@ -21,7 +21,6 @@ const Cart = () => {
 
   const navigate = useNavigate();
 
-  // helpers (keep lists separate, lookup by id)
   const normalizeId = (v) => (v === undefined || v === null ? "" : String(v));
 
   const findItemById = (id) => {
@@ -37,7 +36,6 @@ const Cart = () => {
   const getItemPrice = (it) => Number(it?.price ?? it?.food_price ?? 0);
   const getItemImage = (it) => it?.image ?? "";
 
-  // Build an array from cartItems (so we iterate actual cart keys, not lists)
   const cartRows = Object.entries(cartItems)
     .map(([id, qty]) => {
       const found = findItemById(id);

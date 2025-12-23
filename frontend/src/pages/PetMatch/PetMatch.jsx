@@ -35,7 +35,7 @@ const PetMatch = () => {
     formData.append("image", image);
 
     try {
-      // Detect breed(s) from your backend
+      //Detect breed from backend
       const response = await axios.post(`${url}/api/detect/predict`, formData, { 
         headers: { "Content-Type": "multipart/form-data" },
       });
@@ -49,8 +49,8 @@ const PetMatch = () => {
         return;
       }
 
-      // 🛒 Fetch products for all detected breeds at once using query parameter
-      const breedQuery = detectedBreeds.join(","); // comma-separated
+      //Fetch products for all detected breeds at once using query parameter
+      const breedQuery = detectedBreeds.join(",");
       const productsRes = await axios.get(`${url}/api/food/by-breed?breeds=${encodeURIComponent(breedQuery)}`);
       setProducts(productsRes.data.data || []);
 
@@ -67,7 +67,6 @@ const PetMatch = () => {
     <div className="petmatch-container">
       <h1 className="petmatch-title">Find the Best Products for Your Pet</h1>
 
-      {/* 🏷️ Upload Section */}
       <div className="upload-section">
         <input id="file-upload" type="file" accept="image/*" onChange={handleFileChange} hidden />
         <label htmlFor="file-upload" className="upload-label">Choose File</label>
@@ -79,14 +78,11 @@ const PetMatch = () => {
         </button>
       </div>
 
-      {/* 🐶 Detected Breed Name */}
       {breeds.length > 0 && (
         <h2 className="breed-result">
           Detected Breed{breeds.length > 1 ? "s" : ""}: <strong>{breeds.join(", ")}</strong>
         </h2>
       )}
-
-      {/* 🛍️ Recommended Products */}
       <div className="products-section">
         {products.length > 0 ? (
           <div className="product-list">

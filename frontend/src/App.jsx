@@ -29,7 +29,7 @@ const App = () => {
     const token = searchParams.get("token");
     if (token) {
       localStorage.setItem("token", token); 
-      setToken(token); //Update Global State
+      setToken(token); 
       navigate("/"); //Clear URL
       toast.success("Google Login Successful!");
     }

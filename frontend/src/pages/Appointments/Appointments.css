@@ -1,6 +1,4 @@
-/* src/pages/Appointments/Appointments.css */
 
-/* Import fonts globally */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 * {
@@ -25,7 +23,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.3); /* Soft white overlay */
+  background: rgba(255, 255, 255, 0.3); 
   z-index: -1;
   backdrop-filter: blur(4px);
 }
@@ -47,7 +45,6 @@ body::before {
   }
 }
 
-/* Appointments Page Styles */
 .appointments-container {
   padding: 30px;
   background: rgba(255, 255, 255, 0.85);
@@ -63,7 +60,7 @@ body::before {
 }
 
 .heading-section {
-  border-left: 5px solid #ff7e5f; /* Gradient-like warm color */
+  border-left: 5px solid #ff7e5f; 
   padding-left: 20px;
   margin-bottom: 40px;
 }
@@ -79,7 +76,6 @@ body::before {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Form Styling */
 .appointment-form {
   max-width: 600px;
   margin: 0 auto;
@@ -131,7 +127,6 @@ body::before {
   box-shadow: 0 8px 20px rgba(255, 126, 95, 0.4);
 }
 
-/* Confirmation message */
 .confirmation-message {
   margin-top: 20px;
   padding: 18px;
@@ -144,7 +139,6 @@ body::before {
   animation: fadeIn 1s ease-in-out;
 }
 
-/* Read More Button */
 .read-more {
   display: inline-block;
   background: linear-gradient(90deg, #ff7e5f, #feb47b);

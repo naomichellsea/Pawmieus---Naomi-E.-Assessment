@@ -1,4 +1,4 @@
-/* Main Container for Place Order */
+
 .place-order {
     display: flex;
     align-items: start;
@@ -37,12 +37,10 @@
     max-width: max(40%, 500px);
 }
 
-/* Cart Totals */
 .cart-total {
     margin-bottom: 20px;
 }
 
-/* Payment Options - Side by Side */
 .payment-options {
     display: flex;
     gap: 15px;
@@ -50,7 +48,6 @@
     margin-top: 20px;
 }
 
-/* Common styles for Payment Buttons */
 .payment-button {
     display: flex;
     align-items: center;
@@ -68,30 +65,11 @@
     text-align: center;
 }
 
-/* Highlight the selected payment method */
 .payment-button.selected {
     background: tomato;
     color: white;
 }
 
-/* Razorpay button specific styles */
-.razorpay {
-    border: 2px solid #0070f3;
-    color: #0070f3;
-}
-
-.razorpay.selected {
-    background: #0070f3;
-    color: white;
-}
-
-/* Razorpay Logo Button Styling */
-.razorpay-logo {
-    width: 120px;
-    height: auto;
-}
-
-/* "Place Order" Button */
 .place-order-submit {
     background: none;
     color: tomato;
@@ -112,7 +90,6 @@
     text-decoration: none;
 }
 
-/* Responsive Design */
 @media (max-width: 700px) {
     .place-order {
         flex-direction: column;
