@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Brand Identity */
-  --primary: #c21569;   /* Pink */
-  --secondary: #A68A5D; /* Gold */
-  --bg-body: #f8f9fa;   /* Soft dashboard gray */
+  --primary: #c21569;   
+  --secondary: #A68A5D;
+  --bg-body: #f8f9fa;  
   --text-dark: #333333;
 }
 
@@ -19,7 +18,7 @@ body {
   min-height: 100vh;
   background-color: var(--bg-body);
   color: var(--text-dark);
-  -webkit-font-smoothing: antialiased; /* Sharper text */
+  -webkit-font-smoothing: antialiased; 
 }
 
 a {
@@ -54,7 +53,6 @@ hr {
   transform: scale(0.95);
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }

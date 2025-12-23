@@ -25,7 +25,7 @@ const allowedOrigins = ["http://localhost:5173", "http://localhost:5174", "http:
 
 app.use(cors({
   origin: function(origin, callback) {
-    if (!origin) return callback(null, true); // allow tools like Postman
+    if (!origin) return callback(null, true); 
     if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -54,7 +54,6 @@ app.get('/auth/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })
 );
 
-// Callback (Where Google returns)
 app.get('/auth/google/callback', 
   passport.authenticate('google', { failureRedirect: 'http://localhost:5173' }), 
   (req, res) => {

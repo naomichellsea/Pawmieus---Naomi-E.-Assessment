@@ -1,9 +1,9 @@
-// src/pages/Orders/Orders.jsx
+
 import React, { useEffect, useState, useContext } from 'react';
 import './Orders.css';
 import { toast } from 'react-toastify';
 import axios from 'axios';
-import { assets } from '../../assetsco/assets'; // correct import
+import { assets } from '../../assetsco/assets'; 
 import { StoreContext } from '../../Contextco/StoreContext';
 
 const Orders = () => {
@@ -12,7 +12,7 @@ const Orders = () => {
 
   console.log("🔑 Current Admin Token:", token);
 
-  // Fetch all orders
+  //Fetch all orders
   const fetchAllOrders = async () => {
     try {
       console.log('📡 fetching orders from:', `${url}/api/orders/list`);
@@ -21,7 +21,7 @@ const Orders = () => {
         withCredentials: true,
       });
 
-      console.log('✅ orders response:', response);
+      console.log('orders response:', response);
       if (response?.data?.success) {
         setOrders(Array.isArray(response.data.data) ? response.data.data.reverse() : []);
       } else {
@@ -39,11 +39,10 @@ const Orders = () => {
     }
   };
 
-  // Update order status
+  //Update order status
   const statusHandler = async (event, orderId) => {
     const newStatus = event.target.value;
     
-    // 👇 PASTE YOUR LONG TOKEN STRING INSIDE THESE QUOTES
     const manualToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjZlYjc5YWVhZjFhYzA1YzA5OTg3ZSIsImlhdCI6MTc2NDE2MjExMn0.gyiSEBkoeTKng1XVnhAEl0INHxzABqYibhSX4d-dIC0"; 
 
     try {
@@ -52,13 +51,12 @@ const Orders = () => {
         `${url}/api/orders/status`,
         { orderId, status: newStatus },
         {
-          // 👇 WE USE THE MANUAL TOKEN HERE
           headers: { Authorization: `Bearer ${manualToken}` },
           withCredentials: true,
         }
       );
 
-      console.log('✅ status update response:', response);
+      console.log('status update response:', response);
       if (response?.data?.success) {
         toast.success('Order status updated');
         await fetchAllOrders();
@@ -66,7 +64,7 @@ const Orders = () => {
         toast.error(response?.data?.message || 'Error updating order status');
       }
     } catch (error) {
-      console.error('🔴 Error updating order status:', error);
+      console.error('Error updating order status:', error);
       toast.error('Failed to update status');
     }
   };
@@ -78,7 +76,6 @@ const Orders = () => {
       return;
     }
     fetchAllOrders();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url, token]);
 
   const safeAddressString = (addr) => {

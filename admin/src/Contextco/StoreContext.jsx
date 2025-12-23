@@ -1,4 +1,4 @@
-// StoreContext.js
+
 import { createContext, useState } from "react";
 import axios from "axios";
 import { food_list, menu_list, pet_food_list } from "../assetsco/assets";
@@ -12,23 +12,19 @@ const StoreContextProvider = (props) => {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user")) || null
   );
-  const url = "http://localhost:3000"; // backend URL
-  const currency = "AED"; // or "$" depending on your setup
-  const deliveryCharge = 30; // example value
+  const url = "http://localhost:3000"; //backend URL
+  const currency = "AED";
+  const deliveryCharge = 30;
 
-  // NEW: token state (keeps token in sync with localStorage)
+  //keeps token in sync with localStorage
   const [token, setToken] = useState(localStorage.getItem("token") || null);
 
-  // --- Helpers (keep lists separate, but lookup when needed) ---
   const normalizeId = (v) => (v === undefined || v === null ? "" : String(v));
 
-  // try food_list first, then pet_food_list
   const findItemById = (id) => {
     const nid = normalizeId(id);
-    // search food_list (_id)
     const food = food_list.find((p) => normalizeId(p._id) === nid);
     if (food) return { source: "food", item: food };
-    // search pet_food_list (id)
     const pet = pet_food_list.find((p) => normalizeId(p.id) === nid);
     if (pet) return { source: "pet", item: pet };
     return null;
@@ -36,7 +32,6 @@ const StoreContextProvider = (props) => {
 
   const getPriceFrom = (item) => Number(item?.price ?? item?.food_price ?? 0);
 
-  // --- Auth/login/register ---
   const loginUser = async (currState, data) => {
     try {
       const url =
@@ -48,7 +43,7 @@ const StoreContextProvider = (props) => {
 
       const res = await axios.post(url, data, {
         headers: { "Content-Type": "application/json" },
-        withCredentials: true, // allow cookies/auth if backend uses them
+        withCredentials: true,
       });
 
       console.log(
@@ -58,30 +53,27 @@ const StoreContextProvider = (props) => {
         res.data
       );
 
-      // Accept both token-in-body or cookie-based auth (token may be absent if HttpOnly cookie used)
+      //token may be absent if HttpOnly cookie used
       const responseData = res.data || {};
       const success = responseData.success === true || res.status === 200;
 
       if (success) {
-        // If backend returned a token explicitly, store it
         if (responseData.token) {
           localStorage.setItem("token", responseData.token);
           setToken(responseData.token);
         } else {
-          // no token in response — backend might be using HttpOnly cookie
           console.log(
             "🔁 [StoreContext] no token returned in body — assuming cookie-based auth (HttpOnly cookie)."
           );
         }
 
-        // If backend returned user info, store it
         if (responseData.user) {
           localStorage.setItem("user", JSON.stringify(responseData.user));
           setUser(responseData.user);
           return { success: true, user: responseData.user };
         }
 
-        // If no user in response but success, still return success
+        //If no user in response but success, still return success
         return { success: true, message: "Logged in (no user returned)" };
       } else {
         console.log("🔁 [StoreContext] backend returned failure:", responseData);
@@ -98,7 +90,6 @@ const StoreContextProvider = (props) => {
     }
   };
 
-  // --- Logout ---
   const logoutUser = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -106,8 +97,6 @@ const StoreContextProvider = (props) => {
     setToken(null);
     toast.info("Logged out");
   };
-
-  // --- Cart functions ---
   const addToCart = (itemId) => {
     const id = normalizeId(itemId);
     setCartItems((prev) => ({
@@ -130,7 +119,6 @@ const StoreContextProvider = (props) => {
     });
   };
 
-  // remove whole item (helper for "remove all" / quick delete)
   const removeAllFromCart = (itemId) => {
     const id = normalizeId(itemId);
     setCartItems((prev) => {
@@ -141,7 +129,6 @@ const StoreContextProvider = (props) => {
     });
   };
 
-  // optionally set quantity directly
   const setCartQuantity = (itemId, qty) => {
     const id = normalizeId(itemId);
     const q = Number(qty) || 0;
@@ -156,7 +143,6 @@ const StoreContextProvider = (props) => {
     });
   };
 
-  // compute total by looking up each cart key in the two lists (no combining)
   const getTotalCartAmount = () => {
     let totalAmount = 0;
 
@@ -176,7 +162,6 @@ const StoreContextProvider = (props) => {
     setOrdersData(deliveryData);
   };
 
-  // context export (now includes token and setToken)
   const contextValue = {
     food_list,
     pet_food_list,
@@ -198,7 +183,6 @@ const StoreContextProvider = (props) => {
     url,
     currency,
     deliveryCharge,
-    // If you use url/currency/deliveryCharge in other places, keep them here too
   };
 
   return (

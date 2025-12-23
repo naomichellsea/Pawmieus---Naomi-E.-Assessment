@@ -8,7 +8,6 @@ const MyOrders = () => {
   const [data, setData] = useState([]);
   const { url, token, currency } = useContext(StoreContext);
 
-  // Fetch Orders
   const fetchOrders = async () => {
     try {
       if (!token) return;

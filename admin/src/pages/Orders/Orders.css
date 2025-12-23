@@ -1,12 +1,9 @@
-/* --- The Card Container --- */
 .order-item {
     display: grid;
-    /* Adjusted columns for better spacing */
     grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr;
-    align-items: start; /* Keeps address aligned at top */
+    align-items: start; 
     gap: 20px;
     
-    /* Modern Aesthetic */
     background: #ffffff;
     border: 1px solid #f0f0f0;
     border-radius: 12px;
@@ -15,41 +12,37 @@
     font-size: 14px;
     color: #505050;
     
-    /* Depth & Accent */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
-    border-left: 5px solid #c21569; /* Brand Pink Accent */
+    border-left: 5px solid #c21569; 
     transition: all 0.3s ease;
 }
 
-/* Hover Effect */
 .order-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(166, 138, 93, 0.15); /* Gold Shadow */
-    border-left-color: #A68A5D; /* Changes to Gold on hover */
+    box-shadow: 0 10px 25px rgba(166, 138, 93, 0.15); 
+    border-left-color: #A68A5D; 
 }
 
-/* --- The Icon --- */
 .order-item img {
     width: 45px;
     padding: 10px;
-    background: #fff4f8; /* Light Pink Circle */
+    background: #fff4f8; 
     border-radius: 50%;
     object-fit: cover;
 }
 
-/* --- Typography Hierarchy --- */
 .order-item-food {
     font-weight: 600;
     color: #333;
     font-size: 15px;
     line-height: 1.5;
-    margin-bottom: 15px; /* Spacing between food and user details */
+    margin-bottom: 15px; 
 }
 
 .order-item-name {
     font-weight: 700;
     font-size: 14px;
-    color: #c21569; /* Make customer name pop */
+    color: #c21569; 
     margin-bottom: 5px;
 }
 
@@ -68,22 +61,18 @@
     color: #555;
 }
 
-/* --- Status Dropdown (The Select Box) --- */
 .order-item select {
     background-color: #fff;
     border: 1px solid #e0e0e0;
     width: max(10vw, 120px);
     padding: 10px 15px;
     outline: none;
-    border-radius: 25px; /* Pill Shape */
+    border-radius: 25px; 
     font-size: 13px;
     font-weight: 600;
     color: #555;
     cursor: pointer;
     transition: all 0.3s ease;
-    
-    /* Custom Arrow formatting usually requires wrapping, 
-       but we can make the box look good */
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
@@ -98,23 +87,18 @@
     box-shadow: 0 0 0 3px rgba(194, 21, 105, 0.1);
 }
 
-/* --- Responsive Design --- */
 @media (max-width: 1000px) {
     .order-item {
         font-size: 13px;
-        /* Stack layout for mobile */
         grid-template-columns: 1fr; 
         gap: 15px;
         padding: 20px;
     }
-
-    /* Adjust Icon position for mobile */
     .order-item img {
         width: 40px;
         margin-bottom: 10px;
     }
 
-    /* Make dropdown full width on mobile */
     .order-item select {
         width: 100%;
         padding: 12px;

@@ -1,11 +1,10 @@
-/* --- Wrapper for the whole list --- */
+
 .list-table {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Adds space between the rows */
+    gap: 15px; 
 }
 
-/* --- The Row (Both Title & Items) --- */
 .list-table-format {
     display: grid;
     grid-template-columns: 0.5fr 2fr 1fr 1fr 0.5fr;
@@ -15,18 +14,16 @@
     font-size: 14px;
     color: #555;
     
-    /* Modern Card Look */
     background-color: #ffffff;
     border: 1px solid #f0f0f0;
-    border-radius: 12px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); /* Very soft shadow */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); 
     transition: all 0.3s ease;
 }
 
-/* --- The Header Row Specifics --- */
 .list-table-format.title {
-    background-color: #c21569; /* Brand Pink Background */
-    color: #ffffff; /* White text */
+    background-color: #c21569; 
+    color: #ffffff; 
     font-weight: 600;
     border: none;
     border-radius: 12px;
@@ -36,27 +33,23 @@
     font-size: 12px;
 }
 
-/* --- Data Row Hover Effect --- */
-/* We use :not(.title) so the header doesn't move when you hover it */
 .list-table-format:not(.title):hover {
-    transform: translateY(-3px); /* Lifts up slightly */
-    box-shadow: 0 8px 20px rgba(166, 138, 93, 0.15); /* Gold shadow glow */
-    border-left: 5px solid #A68A5D; /* Gold accent appears on left */
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 20px rgba(166, 138, 93, 0.15); 
+    border-left: 5px solid #A68A5D; 
 }
 
-/* --- The Image --- */
 .list-table-format img {
     width: 50px;
-    height: 50px; /* Force square for consistency */
-    border-radius: 8px; /* Rounded image corners */
+    height: 50px; 
+    border-radius: 8px; 
     object-fit: cover;
     border: 1px solid #eee;
 }
 
-/* --- The "Remove" Action (X button) --- */
 .list-table-format .cursor {
     cursor: pointer;
-    color: #ff4d4d; /* Soft red */
+    color: #ff4d4d; 
     font-weight: bold;
     font-size: 16px;
     text-align: center;
@@ -65,32 +58,26 @@
     line-height: 30px;
     border-radius: 50%;
     transition: 0.2s;
-    justify-self: center; /* Centers it in its grid cell */
+    justify-self: center;
 }
 
 .list-table-format .cursor:hover {
-    background-color: #ffe6e6; /* Light red circle on hover */
+    background-color: #ffe6e6; 
     color: #d11a2a;
 }
 
-/* --- Responsive Design --- */
 @media (max-width: 600px) {
     .list-table-format {
-        /* Change grid to show: Image | Name | Price | X */
-        /* Category is hidden on small screens to save space */
         grid-template-columns: 1fr 3fr 1fr 0.5fr; 
         gap: 10px;
         padding: 10px;
         font-size: 13px;
     }
 
-    /* Hide the Category column in the data rows */
-    /* Assuming Category is the 3rd child. Adjust nth-child if order differs */
     .list-table-format > :nth-child(3) {
         display: none;
     }
 
-    /* Hide the header completely on mobile as requested */
     .list-table-format.title {
         display: none;
     }

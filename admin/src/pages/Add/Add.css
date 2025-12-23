@@ -1,4 +1,4 @@
-/* --- The Main Card Container --- */
+
 .add {
     width: 70%;
     margin-left: max(5vw, 25px);
@@ -8,7 +8,6 @@
     font-size: 15px;
     font-family: 'Poppins', sans-serif;
     
-    /* Card Aesthetic */
     background: #ffffff;
     padding: 40px;
     border-radius: 16px;
@@ -16,21 +15,18 @@
     border: 1px solid #f0f0f0;
 }
 
-/* --- Form Layout --- */
 .add form {
     display: flex;
     flex-direction: column;
     gap: 25px;
 }
 
-/* --- Labels (Assuming <p> tags are used for labels) --- */
 .add p {
     margin-bottom: 8px;
     font-weight: 500;
     color: #333;
 }
 
-/* --- Image Upload Area --- */
 .add-img-upload {
     display: flex;
     flex-direction: column;
@@ -39,30 +35,28 @@
 
 .add-img-upload img {
     width: 120px;
-    height: 120px; /* Forces square ratio */
+    height: 120px; 
     object-fit: cover;
     border-radius: 12px;
     cursor: pointer;
-    border: 2px dashed #dcdcdc; /* Dashed border suggests "Upload" */
+    border: 2px dashed #dcdcdc;
     transition: all 0.3s ease;
-    padding: 5px; /* Spacing between image and border */
+    padding: 5px; 
 }
 
 .add-img-upload img:hover {
-    border-color: #c21569; /* Pink on hover */
+    border-color: #c21569; 
     background-color: #fff4f8;
 }
 
-/* --- Input Fields Wrapper --- */
 .add-product-name, 
 .add-product-description {
-    width: 100%; /* Use full width of container, capped below */
-    max-width: 450px; /* Cap width so it doesn't look stretched */
+    width: 100%; 
+    max-width: 450px; 
     display: flex;
     flex-direction: column;
 }
 
-/* --- The Inputs & Textarea --- */
 .add-product-name input, 
 .add-product-description textarea,
 .add-category-price select,
@@ -78,25 +72,23 @@
     transition: all 0.3s ease;
 }
 
-/* --- Input Focus State (The Glow) --- */
 .add input:focus, 
 .add textarea:focus, 
 .add select:focus {
-    border-color: #c21569; /* Brand Pink */
+    border-color: #c21569;
     background-color: #fff;
-    box-shadow: 0 0 0 4px rgba(194, 21, 105, 0.05); /* Soft pink glow ring */
+    box-shadow: 0 0 0 4px rgba(194, 21, 105, 0.05); 
 }
 
 .add-product-description textarea {
-    resize: vertical; /* User can resize height only */
+    resize: vertical; 
     min-height: 100px;
 }
 
-/* --- Category & Price Row --- */
 .add-category-price {
     display: flex;
     gap: 30px;
-    flex-wrap: wrap; /* Allows stacking on small screens */
+    flex-wrap: wrap; 
 }
 
 .add-category-price > div {
@@ -104,19 +96,17 @@
     flex-direction: column;
 }
 
-/* --- The "ADD" Button --- */
 .add-btn {
     width: 150px;
     border: none;
     padding: 12px;
     
-    /* Brand Gradient */
     background: linear-gradient(135deg, #c21569, #A68A5D);
     color: white;
     font-weight: 600;
     font-size: 15px;
     
-    border-radius: 30px; /* Pill Shape */
+    border-radius: 30px;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(194, 21, 105, 0.2);
@@ -133,10 +123,9 @@
     transform: scale(0.98);
 }
 
-/* --- Responsive Design --- */
 @media (max-width: 768px) {
     .add {
-        width: 90%; /* Use more screen on mobile */
+        width: 90%; 
         margin-left: auto;
         margin-right: auto;
         padding: 25px;
@@ -148,7 +137,7 @@
     
     .add-category-price select, 
     .add-category-price input {
-        width: 100%; /* Full width on mobile */
+        width: 100%; 
         max-width: none;
     }
     

@@ -21,7 +21,7 @@ export const detectBreed = async (req, res) => {
 
         console.log(`Processing image: ${imagePath}`);
 
-        // Execute Python script
+        //Execute Python script
         const pythonProcess = spawn("python3", [
             path.join(__dirname, "../detect_breed.py"),
             imagePath
@@ -41,11 +41,10 @@ export const detectBreed = async (req, res) => {
         //Handle process completion
         pythonProcess.on("close", (code) => {
             if (code === 0) {
-                //Split breeds by comma (if multiple breeds detected)
                 const detectedBreeds = resultData.split(",").map(b => b.trim());
 
                 console.log(`🐶 Detected breeds:`, detectedBreeds);
-                res.json({ breeds: detectedBreeds });  // ✅ Send clean breed names
+                res.json({ breeds: detectedBreeds });  
             } else {
                 console.error(`❌ YOLO detection failed: ${errorData}`);
                 res.status(500).json({ error: "YOLO detection failed", details: errorData });

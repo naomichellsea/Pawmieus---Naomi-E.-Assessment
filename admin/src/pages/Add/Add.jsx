@@ -11,10 +11,10 @@ const Add = () => {
         description: "",
         price: "",
         category: "Dogfood",
-        breeds: [] // ✅ New state for storing multiple selected breeds
+        breeds: [] 
     });
 
-    // ✅ List of breeds that YOLO can detect
+    //List of breeds that YOLO can detect
     const availableBreeds = ["Husky", "Beagle", "Bulldog", "Corgi", "Golden Retriever", "Pomeranian"];
 
     const onSubmitHandler = async (event) => {
@@ -31,7 +31,7 @@ const Add = () => {
         formData.append("price", Number(data.price));
         formData.append("category", data.category);
         formData.append("image", image);
-        formData.append("breeds", JSON.stringify(data.breeds)); // ✅ Convert breeds array to JSON string
+        formData.append("breeds", JSON.stringify(data.breeds)); //Convert breeds array to JSON string
 
         const response = await axios.post(`${url}/api/food/add`, formData);
         if (response.data.success) {
@@ -41,7 +41,7 @@ const Add = () => {
                 description: "",
                 price: "",
                 category: data.category,
-                breeds: [] // ✅ Reset breeds after submission
+                breeds: [] //Reset breeds after submission
             });
             setImage(false);
         } else {
@@ -55,7 +55,7 @@ const Add = () => {
         setData(data => ({ ...data, [name]: value }));
     };
 
-    // ✅ Handle Multiple Breed Selection
+    //Handle Multiple Breed Selection
     const handleBreedSelection = (event) => {
         const selectedOptions = Array.from(event.target.selectedOptions, option => option.value);
         setData(data => ({ ...data, breeds: selectedOptions }));
@@ -89,7 +89,7 @@ const Add = () => {
                             <option value="cattoys">Cat Toys</option>
                         </select>
                     </div>
-                    <div className='add-breed flex-col'> {/* ✅ Multi-select dropdown */}
+                    <div className='add-breed flex-col'> 
                         <p>Recommended for Breeds</p>
                         <select multiple name='breeds' onChange={handleBreedSelection}>
                             {availableBreeds.map((breed, index) => (

@@ -6,7 +6,7 @@ const foodSchema = new mongoose.Schema({
     price: { type: Number, required: true },
     image: { type: String, required: true },
     category: { type: String, required: true },
-    breeds: [{ type: String, required: true }]  // ✅ Array for multiple breeds
+    breeds: [{ type: String, required: true }]  
 });
 
 const foodModel = mongoose.models.Products || mongoose.model("Products", foodSchema);
