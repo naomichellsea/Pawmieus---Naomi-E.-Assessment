@@ -135,8 +135,6 @@
     color: #c21569;
   }
   
-  
-  /* Remove all box backgrounds & shadows */
   .navbar-profile-dropdown,
   .navbar-profile-dropdown hr {
     background: none;
@@ -151,7 +149,6 @@
     background: #f0f0f0;
   }
   
-  /* Responsive */
   @media (max-width:1050px) {
     .navbar { padding: 15px 30px; }
     .navbar-menu { gap: 20px; }
@@ -161,13 +158,12 @@
     .navbar-menu { display: none; }
     .navbar-right { gap: 15px; }
   }
-    /* make btn-login align with icons and navbar style */
   .btn-login {
     display: inline-flex;
     align-items: center;
-    gap: 10px;            /* space between icon + text */
+    gap: 10px;           
     border: 2px solid #A68A5D;
-    padding: 6px 16px;    /* slightly tighter */
+    padding: 6px 16px;   
     border-radius: 50px;
     background: transparent;
     color: #A68A5D;
@@ -177,18 +173,16 @@
     line-height: 1;
   }
 
-  /* small press feedback */
   .btn-login:active {
     transform: translateY(1px);
   }
 
-  /* icon inside the button */
   .signin-icon {
     width: 18px;
     height: 18px;
     display: inline-block;
     object-fit: contain;
-    filter: none; /* keep original colors; change if you want mono color */
+    filter: none; 
     transition: transform 0.18s;
   }
   .signin-text {
@@ -197,7 +191,6 @@
     font-weight: 600;
   }
 
-  /* subtle hover */
   .btn-login:hover {
     background: #c21569;
     color: #fff;
@@ -206,7 +199,6 @@
     transform: translateY(-1px) scale(1.05);
   }
 
-  /* hide text and keep an icon-only circular button on small screens */
   @media (max-width: 750px) {
     .btn-login {
       padding: 8px;

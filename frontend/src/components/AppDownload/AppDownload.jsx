@@ -5,7 +5,6 @@ import { assets } from '../../assets/assets'
 const AppDownload = () => {
     return (
         <div className='app-download' id='app-download'>
-            {/* Added a decorative quote mark styling if you want, or keep simple */}
             <p>
                 " A wagging tail can heal <br /> a broken heart "
             </p>

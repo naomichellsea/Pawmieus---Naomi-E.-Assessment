@@ -4,7 +4,6 @@ import multer from 'multer';
 
 const foodRouter = express.Router();
 
-// 📌 Image Storage Engine
 const storage = multer.diskStorage({
     destination: 'uploads',
     filename: (req, file, cb) => {
@@ -17,6 +16,6 @@ const upload = multer({ storage: storage });
 foodRouter.get("/list", listFood);
 foodRouter.post("/add", upload.single('image'), addFood);
 foodRouter.post("/remove", removeFood);
-foodRouter.get("/by-breed", getFoodByBreed);// ✅ New API to fetch products by breed
+foodRouter.get("/by-breed", getFoodByBreed);
 
 export default foodRouter;

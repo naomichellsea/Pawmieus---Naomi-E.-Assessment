@@ -1,4 +1,4 @@
-/* Overlay */
+
 .login-popup {
     position: fixed;
     z-index: 1000;
@@ -10,7 +10,6 @@
     animation: fadeIn 0.5s ease;
 }
 
-/* Container */
 .login-popup-container {
     width: clamp(300px, 23vw, 400px);
     background: linear-gradient(145deg, #fff 0%, #fdf6f2 100%);
@@ -25,7 +24,6 @@
     animation: slideUp 0.5s ease forwards;
 }
 
-/* Title */
 .login-popup-title {
     display: flex;
     justify-content: space-between;
@@ -43,7 +41,6 @@
     transform: rotate(90deg);
 }
 
-/* Inputs */
 .login-popup-inputs {
     display: flex;
     flex-direction: column;
@@ -62,7 +59,6 @@
     box-shadow: 0 0 8px #c21569;
 }
 
-/* Button */
 .login-popup-container button {
     border: none;
     padding: 12px 0;
@@ -80,7 +76,6 @@
     box-shadow: 0 5px 15px rgba(194, 21, 105, 0.3);
 }
 
-/* Conditions / Checkbox */
 .login-popup-condition {
     display: flex;
     align-items: center;
@@ -91,7 +86,6 @@
     margin-top: 0;
 }
 
-/* Links */
 .login-popup p span {
     color: #c21569;
     font-weight: 600;
@@ -103,7 +97,6 @@
     color: #A68A5D;
 }
 
-/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -112,16 +105,14 @@
     from { transform: translateY(50px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
-/* ... Your existing CSS ... */
 
-/* NEW: Separator Style */
 .login-popup-separator {
     display: flex;
     align-items: center;
     text-align: center;
     color: #808080;
     font-size: 14px;
-    margin: -10px 0; /* Adjust spacing as needed */
+    margin: -10px 0; 
 }
 .login-popup-separator::before,
 .login-popup-separator::after {
@@ -134,7 +125,6 @@
     font-weight: 500;
 }
 
-/* NEW: Google Button specific styles */
 .login-popup-container button.google-btn {
     background: #fff;
     color: #555;
@@ -143,18 +133,17 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-top: -10px; /* Pull it up slightly */
+    margin-top: -10px; 
     transition: all 0.3s ease;
 }
 
 .login-popup-container button.google-btn:hover {
     background: #f8f8f8;
-    border-color: #c21569; /* Uses your theme pink for hover border */
+    border-color: #c21569; 
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .login-popup-container button.google-btn svg {
-    /* Ensures the SVG icon stays crisp */
     min-width: 20px;
 }

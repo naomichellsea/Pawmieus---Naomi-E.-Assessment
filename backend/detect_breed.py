@@ -9,7 +9,6 @@ if not os.path.exists(image_path):
     print("Error: Image file not found")
     sys.exit(1)
 
-#Load YOLO model correctly
 script_dir = os.path.dirname(os.path.abspath(__file__))  
 model_path = os.path.join(script_dir, "best.pt")  #Path to YOLO model
 
@@ -32,7 +31,6 @@ try:
                     breed_name = result.names[class_id].strip()
                     detected_breeds.add(breed_name)
 
-    # ✅ Print only detected breed names (comma-separated if multiple)
     print(",".join(detected_breeds) if detected_breeds else "Unknown")
 
 except Exception as e:

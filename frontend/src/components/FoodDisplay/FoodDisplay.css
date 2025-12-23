@@ -1,32 +1,28 @@
 .food-display {
-    margin-top: 60px; /* Increased top margin for luxury spacing */
-    animation: fadeIn 1.5s ease-out; /* Add animation for smooth entry */
+    margin-top: 60px; 
+    animation: fadeIn 1.5s ease-out; /*animation for smooth entry */
     padding: 0 1vw; 
 }
 
-/* Section Headline: Regal and Gold-Accented */
 .food-display h2 {
-    font-family: 'Playfair Display', serif; /* Consistent luxury font from header */
+    font-family: 'Playfair Display', serif; 
     color: var(--dark-charcoal);
-    font-size: max(3vw, 32px); /* Larger, more impactful headline */
+    font-size: max(3vw, 32px); 
     font-weight: 700;
     margin-bottom: 20px; 
     letter-spacing: 1px;
-    display: inline-block; /* Confines underline to the text width */
+    display: inline-block; 
     padding-bottom: 5px;
 }
 
-/* Product Grid Layout: Emphasizing Space and Presentation */
 .food-display-list {
     display: grid;
-    /* Increase min card width and gaps for a grander, more exclusive look */
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
     margin-top: 40px; 
     gap: 40px; 
-    row-gap: 60px; /* Increased vertical space between rows */
+    row-gap: 60px; 
 }
 
-/* Responsive Adjustments for Mobile */
 @media (max-width: 750px) {
     .food-display {
         margin-top: 40px;
@@ -35,10 +31,10 @@
         font-size: 8vw;
         text-align: center;
         width: 100%;
-        border-bottom: none; /* Remove underline on mobile for cleaner look */
+        border-bottom: none; 
     }
     .food-display-list {
-        grid-template-columns: 1fr 1fr; /* Two columns on smaller screens */
+        grid-template-columns: 1fr 1fr;
         gap: 20px;
         row-gap: 30px;
     }

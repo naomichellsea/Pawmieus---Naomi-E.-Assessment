@@ -6,17 +6,17 @@
 }
 
 .header {
-    height: 40vw; /* Slightly taller for more visual impact */
-    margin: 35px auto; /* Increased margin for better spacing */
+    height: 40vw; 
+    margin: 35px auto; 
     background: url('/header_bg.png') no-repeat center;
     background-size: cover;
     background-position: center;
     position: relative;
     width: 90%;
-    max-width: 1400px; /* Allows it to feel grander on large screens */
-    border-radius: 12px; /* Soft, rounded corners */
-    overflow: hidden; /* Ensures contents stay within rounded boundary */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); /* Deep, soft shadow for depth */
+    max-width: 1400px; 
+    border-radius: 12px; 
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); 
 }
 
 .header-contents {
@@ -24,38 +24,35 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    gap: 1.5vw; /* Increased gap for a more spacious, premium feel */
-    max-width: 45%; /* Slightly narrower text block */
-    top: 50%; /* Center vertically */
-    left: 8%; /* Push content in from the edge */
-    transform: translateY(-50%); /* Adjust vertically to true center */
+    gap: 1.5vw; 
+    max-width: 45%; 
+    top: 50%;
+    left: 8%; 
+    transform: translateY(-50%); 
     animation: fadeIn 2s ease-out;
-    padding: 20px; /* Padding for mobile safety */
+    padding: 20px; 
 }
 
-/* Main Headline: Sophisticated and Regal */
 .header-contents h2 {
-    font-family: 'Playfair Display', serif; /* A classic, high-end serif font */
+    font-family: 'Playfair Display', serif; 
     font-weight: 700;
     color: var(--dark-charcoal);
     font-size: max(4.8vw, 28px);
-    line-height: 1.1; /* Tighter leading */
+    line-height: 1.1; 
     letter-spacing: 1px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); 
 }
 
-/* Sub-Headline: Gold Accent */
 .header-contents h3 {
-    font-family: 'Outfit', sans-serif; /* Clean, modern font for the secondary hook */
+    font-family: 'Outfit', sans-serif; 
     font-weight: 500;
-    color: var(--luxury-gold); /* Highlighted in brass/gold */
+    color: var(--luxury-gold); 
     font-size: max(2.5vw, 16px);
-    letter-spacing: 3px; /* Wide spacing adds sophistication */
+    letter-spacing: 3px; 
     text-transform: uppercase;
     margin-bottom: 5px;
 }
 
-/* Description Text: Clean and Legible */
 .header-contents p {
     color: var(--dark-charcoal);
     font-size: max(1.1vw, 14px);
@@ -63,7 +60,6 @@
     line-height: 1.6;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 1050px) {
     .header-contents {
         max-width: 55%;
@@ -82,14 +78,14 @@
 
 @media (max-width: 600px) {
     .header {
-        height: 55vw; /* Taller on mobile */
+        height: 55vw; 
         margin: 15px auto;
         border-radius: 8px;
     }
     .header-contents {
-        max-width: 90%; /* Allows text to take up most of the screen */
+        max-width: 90%; 
         left: 50%;
-        transform: translate(-50%, -50%); /* Center content */
+        transform: translate(-50%, -50%); 
         align-items: center;
         text-align: center;
         gap: 2vw;
@@ -99,10 +95,10 @@
         margin-bottom: 0;
     }
     .header-contents h3 {
-        display: none; /* Optionally hide subtitle for clean mobile view */
+        display: none; 
     }
     .header-contents p {
         font-size: 3.5vw;
-        display: none; /* Hide long description on small screen */
+        display: none; 
     }
 }

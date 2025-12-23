@@ -1,84 +1,74 @@
-/* --- Main Container Card --- */
+
 .app-download {
-    margin: 80px auto; /* Spacing from other sections */
-    margin-bottom: 0; /* Assuming footer is next */
+    margin: 80px auto; 
+    margin-bottom: 0; 
     width: 85%;
     max-width: 1000px;
     
-    /* Premium Card Look */
-    background: linear-gradient(135deg, #fff4f8 0%, #ffffff 100%); /* Soft Pink Fade */
-    border: 1px solid rgba(194, 21, 105, 0.1); /* Subtle Pink Border */
+    background: linear-gradient(135deg, #fff4f8 0%, #ffffff 100%); 
+    border: 1px solid rgba(194, 21, 105, 0.1); 
     border-radius: 24px;
     padding: 60px 40px;
     text-align: center;
     
-    /* Depth */
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
     position: relative;
-    overflow: hidden; /* Keeps decorative elements inside */
+    overflow: hidden; 
     
     font-family: 'Outfit', sans-serif;
     transition: transform 0.4s ease;
 }
 
-/* Hover Effect on the whole card */
 .app-download:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 50px rgba(194, 21, 105, 0.08);
 }
 
-/* --- The Quote Container --- */
 .app-download p {
     font-size: max(2.5vw, 24px);
     font-weight: 600;
     line-height: 1.4;
     margin-bottom: 20px;
-    position: relative; /* Needed for the quote mark positioning */
-    display: inline-block; /* Allows the quote mark to sit relative to text */
-    z-index: 1; /* Ensures text sits on top */
+    position: relative; 
+    display: inline-block; 
+    z-index: 1; 
     
-    /* Decorative Font Style */
     font-style: italic;
     letter-spacing: 0.5px;
     
-    /* Gradient Text Effect */
     background: linear-gradient(90deg, #c21569, #A68A5D);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* --- The Big Decorative Quote Mark --- */
 .app-download p::before {
-    content: '“'; /* The quote symbol */
+    content: '“'; 
     position: absolute;
-    top: -50px; /* Moves it up */
-    left: -40px; /* Moves it to the left */
+    top: -50px; 
+    left: -40px; 
     
-    font-size: 140px; /* Massive size */
-    font-family: serif; /* Classic font for the symbol */
+    font-size: 140px; 
+    font-family: serif; 
     line-height: 1;
-    
-    /* Subtle Watermark Look */
+
     color: #c21569; 
-    opacity: 0.1; /* Very faint so it doesn't block text */
-    -webkit-text-fill-color: #c21569; /* Overrides the parent transparent fill */
-    z-index: -1; /* Puts it behind the text */
+    opacity: 0.1; 
+    -webkit-text-fill-color: #c21569;
+    z-index: -1; 
 }
 
-/* --- The Gold Line Underneath --- */
 .app-download p::after {
     content: '';
     display: block;
     width: 60px;
     height: 4px;
-    background: #A68A5D; /* Gold */
+    background: #A68A5D;
     margin: 15px auto 0 auto;
     border-radius: 2px;
     opacity: 0.6;
 }
 
-/* --- Buttons Container --- */
 .app-download-platforms {
     display: flex;
     justify-content: center;
@@ -87,24 +77,20 @@
     flex-wrap: wrap;
 }
 
-/* --- The Store Buttons --- */
 .app-download-platforms img {
     width: max(12vw, 140px);
     max-width: 180px;
     cursor: pointer;
-    
-    /* Button Styling */
+
     filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
 
-/* Hover Animation for Buttons */
 .app-download-platforms img:hover {
-    transform: scale(1.08) translateY(-5px); /* Grows and floats up */
-    filter: drop-shadow(0 10px 20px rgba(194, 21, 105, 0.2)); /* Pink glow shadow */
+    transform: scale(1.08) translateY(-5px); 
+    filter: drop-shadow(0 10px 20px rgba(194, 21, 105, 0.2));
 }
 
-/* --- Responsive Design --- */
 @media (max-width: 600px) {
     .app-download {
         padding: 40px 20px;

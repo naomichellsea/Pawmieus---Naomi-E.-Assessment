@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import './ExploreMenu.css';
-import { Link } from 'react-router-dom';  // Import Link from react-router-dom
+import { Link } from 'react-router-dom';  
 
 const ExploreMenu = ({ category, setCategory }) => {
   const services_list = [
@@ -26,7 +26,6 @@ const ExploreMenu = ({ category, setCategory }) => {
               <img src={item.menu_image} alt={item.menu_name} style={{ width: '100%', borderRadius: '10px', marginBottom: '10px' }} />
               <h5 style={{ margin: '10px 0', fontSize: '18px', fontWeight: 'bold' }}>{item.menu_name}</h5>
               <p style={{ fontSize: '14px', color: '#747474', minHeight: '40px' }}>{item.description}</p>
-              {/* Replace the <a> tag with Link */}
               <Link to={item.link} className='read-more' style={{ textDecoration: 'none', color: 'tomato', fontWeight: 'bold' }}>
                 Read More
               </Link>

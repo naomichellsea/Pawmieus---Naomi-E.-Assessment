@@ -7,14 +7,13 @@ const FoodItem = ({ image, name, price, desc , id }) => {
 
     const { cartItems = {}, addToCart, removeFromCart, url, currency } = useContext(StoreContext);
 
-    // Ensure cartItems[id] is a valid number or default to 0
+    //Ensure cartItems[id] is a valid number or default to 0
     const itemCount = cartItems[id] || 0;
 
     return (
         <div className='food-item'>
             <div className='food-item-img-container'>
             <img className='food-item-image' src={image} alt={name} />
-                {/* Conditionally render the add to cart button or cart counter */}
                 {itemCount === 0
                     ? <img className='add' onClick={() => addToCart(id)} src={assets.add_icon_white} alt="Add to Cart" />
                     : <div className="food-item-counter">

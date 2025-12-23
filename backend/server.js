@@ -15,7 +15,7 @@ import "./passport-config.js";
 
 dotenv.config();
 
-// Debugging logs
+//Debugging logs
 console.log("🔹 PORT:", process.env.PORT || 4000);
 
 const app = express();
@@ -73,11 +73,11 @@ app.use("/api/appointments", appointmentRouter);
 app.use("/api/detect", detectBreedRouter);
 
 app.get("/", (req, res) => {
-  res.send("✅ API is working!");
+  res.send("API is working!");
 });
 
 app.listen(port, () => {
-  console.log(`🚀 Server running at http://localhost:${port}`);
+  console.log(`Server running at http://localhost:${port}`);
 });
 
 

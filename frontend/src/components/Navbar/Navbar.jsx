@@ -7,7 +7,6 @@ import { StoreContext } from '../../Context/StoreContext';
 const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState('home');
   
-  // 1. Get 'token' from context
   const { getTotalCartAmount, token, logoutUser } = useContext(StoreContext); 
   
   const navigate = useNavigate();
@@ -38,7 +37,6 @@ const Navbar = ({ setShowLogin }) => {
           {getTotalCartAmount() > 0 && <span className="dot"></span>}
         </Link>
 
-        {/* 2. CHANGE: Check '!token' instead of '!user' */}
         {!token ? (
           <button onClick={() => setShowLogin(true)} className="btn-login" aria-label="Sign in">
             <img src={assets.login_icon} alt="" className="signin-icon" />
