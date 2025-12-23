@@ -4,7 +4,7 @@ const userSchema = new mongoose.Schema({
     googleId: {
         type: String,
         unique: true, 
-        sparse: true // <--- IMPORTANT: Allows this field to be null for non-Google users
+        sparse: true //Allows this field to be null for non-Google users
     },
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },

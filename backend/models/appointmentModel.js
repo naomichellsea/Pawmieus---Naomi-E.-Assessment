@@ -7,7 +7,7 @@ const appointmentSchema = new mongoose.Schema({
   service: { type: String, required: true },
   appointmentDate: { type: Date, required: true },
   appointmentTime: { type: String, required: true },
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, // User reference
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, 
 }, { timestamps: true });
 
 const appointmentModel = mongoose.models.Appointment || mongoose.model('Appointment', appointmentSchema);
