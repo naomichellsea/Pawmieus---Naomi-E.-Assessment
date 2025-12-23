@@ -1,6 +1,5 @@
 import userModel from "../models/userModel.js";
 
-// Add to user cart  
 const addToCart = async (req, res) => {
    try {
       let userData = await userModel.findById(req.body.userId);
@@ -8,7 +7,7 @@ const addToCart = async (req, res) => {
          return res.status(404).json({ success: false, message: "User not found" });
       }
 
-      let cartData = userData.cartData || {}; // Ensure cartData is initialized
+      let cartData = userData.cartData || {}; 
       cartData[req.body.itemId] = (cartData[req.body.itemId] || 0) + 1;
 
       await userModel.findByIdAndUpdate(req.body.userId, { cartData });
@@ -19,7 +18,7 @@ const addToCart = async (req, res) => {
    }
 };
 
-// Remove food from user cart
+//Remove food from user cart
 const removeFromCart = async (req, res) => {
    try {
       let userData = await userModel.findById(req.body.userId);
@@ -27,11 +26,11 @@ const removeFromCart = async (req, res) => {
          return res.status(404).json({ success: false, message: "User not found" });
       }
 
-      let cartData = userData.cartData || {}; // Ensure cartData is initialized
+      let cartData = userData.cartData || {}; 
       if (cartData[req.body.itemId] > 0) {
          cartData[req.body.itemId] -= 1;
          if (cartData[req.body.itemId] === 0) {
-            delete cartData[req.body.itemId]; // Remove item if quantity is 0
+            delete cartData[req.body.itemId]; //Remove item if quantity is 0
          }
       }
 
@@ -43,7 +42,6 @@ const removeFromCart = async (req, res) => {
    }
 };
 
-// Get user cart
 const getCart = async (req, res) => {
    try {
       let userData = await userModel.findById(req.body.userId);
@@ -51,7 +49,7 @@ const getCart = async (req, res) => {
          return res.status(404).json({ success: false, message: "User not found" });
       }
 
-      let cartData = userData.cartData || {}; // Ensure cartData is initialized
+      let cartData = userData.cartData || {};
       res.json({ success: true, cartData });
    } catch (error) {
       console.error("Error in getCart:", error);

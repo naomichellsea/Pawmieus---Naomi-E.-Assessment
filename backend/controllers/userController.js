@@ -3,12 +3,10 @@ import bcrypt from "bcrypt";
 import validator from "validator";
 import userModel from "../models/userModel.js";
 
-// create token
 const createToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1d" });
 };
 
-// login user
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -28,7 +26,7 @@ const loginUser = async (req, res) => {
     res.json({
       success: true,
       token,
-      user: { _id: user._id, name: user.name, email: user.email }, // ✅ include user
+      user: { _id: user._id, name: user.name, email: user.email }, //include user
     });
   } catch (error) {
     console.log(error);
@@ -36,7 +34,7 @@ const loginUser = async (req, res) => {
   }
 };
 
-// register user
+//register user
 const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
   try {
@@ -63,7 +61,7 @@ const registerUser = async (req, res) => {
     res.json({
       success: true,
       token,
-      user: { _id: user._id, name: user.name, email: user.email }, // ✅ include user
+      user: { _id: user._id, name: user.name, email: user.email }, 
     });
   } catch (error) {
     console.log(error);

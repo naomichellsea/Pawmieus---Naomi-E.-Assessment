@@ -1,11 +1,10 @@
 import foodModel from "../models/foodModel.js";
 import fs from "fs";
 
-// 📌 Get all food items with optional category filter
 const listFood = async (req, res) => {
     try {
-        const { category } = req.query;  // Check if a category filter is passed
-        const filter = category ? { category: { $in: ['Dogfood', 'Catfood'] } } : {};  // Only Dogfood and Catfood
+        const { category } = req.query; 
+        const filter = category ? { category: { $in: ['Dogfood', 'Catfood'] } } : {};  
         const foods = await foodModel.find(filter);
         res.json({ success: true, data: foods });
     } catch (error) {
@@ -14,13 +13,11 @@ const listFood = async (req, res) => {
     }
 };
 
-// 📌 Add a new food item
 const addFood = async (req, res) => {
     try {
         let image_filename = req.file.filename;
 
-        // ✅ Convert breeds string back to an array
-        const breeds = JSON.parse(req.body.breeds).map(breed => breed.toLowerCase()); // Convert breeds to lowercase
+        const breeds = JSON.parse(req.body.breeds).map(breed => breed.toLowerCase()); 
 
         const food = new foodModel({
             name: req.body.name,
@@ -28,7 +25,7 @@ const addFood = async (req, res) => {
             price: req.body.price,
             category: req.body.category,
             image: image_filename,
-            breeds: breeds  // ✅ Store breeds as lowercase
+            breeds: breeds  
         });
 
         await food.save();
@@ -39,7 +36,6 @@ const addFood = async (req, res) => {
     }
 };
 
-// 📌 Delete food item
 const removeFood = async (req, res) => {
     try {
         const food = await foodModel.findById(req.body.id);
@@ -58,18 +54,15 @@ const removeFood = async (req, res) => {
     }
 };
 
-// 📌 Get food by detected breeds (supports multiple breeds)
 const getFoodByBreed = async (req, res) => {
   try {
-      const { breeds } = req.query; // comma-separated string
+      const { breeds } = req.query; 
       if (!breeds) {
           return res.status(400).json({ success: false, message: "No breeds provided" });
       }
 
-      // Convert to array and lowercase
       const breedArray = breeds.split(",").map(b => b.trim().toLowerCase());
 
-      // Find foods that match any of the breeds
       const foods = await foodModel.find({
           breeds: { $in: breedArray }
       });
