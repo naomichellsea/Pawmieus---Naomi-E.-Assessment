@@ -9,9 +9,14 @@ export const StoreContext = createContext(null);
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
   const [ordersData, setOrdersData] = useState({});
-  const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("user")) || null
-  );
+  const [user, setUser] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("user")) || null;
+    } catch {
+      return null;
+    }
+  });
+  
   const url = "http://localhost:3000"; //backend URL
   const currency = "AED"; 
   const deliveryCharge = 30; 
@@ -33,55 +38,40 @@ const StoreContextProvider = (props) => {
 
   const loginUser = async (currState, data) => {
     try {
-
       const endpoint =
         currState === "Login"
           ? `${url}/api/user/login`
           : `${url}/api/user/register`;
-
-      console.log("🔁 [StoreContext] sending to:", endpoint, "payload:", data);
-
+  
       const res = await axios.post(endpoint, data, {
         headers: { "Content-Type": "application/json" },
-        withCredentials: true, 
+        withCredentials: true,
       });
-
-      console.log(
-        "🔁 [StoreContext] axios res.status:",
-        res.status,
-        "data:",
-        res.data
-      );
-
-      const responseData = res.data || {};
-      const success = responseData.success === true || res.status === 200;
-
-      if (success) {
-        if (responseData.token) {
-          localStorage.setItem("token", responseData.token);
-          setToken(responseData.token);
-        }
-
-        if (responseData.user) {
-          localStorage.setItem("user", JSON.stringify(responseData.user));
-          setUser(responseData.user);
-          return { success: true, user: responseData.user };
-        }
-
-        return { success: true, message: "Logged in" };
-      } else {
-        return {
-          success: false,
-          message: responseData?.message || "Unknown backend error",
-        };
+  
+      const { success, token, user, message } = res.data;
+  
+      if (!success) {
+        return { success: false, message };
       }
+  
+      // SAVE AUTH
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user));
+  
+      setToken(token);
+      setUser(user);
+  
+      return { success: true, user };
+  
     } catch (err) {
-      console.error("🔴 [StoreContext] axios error:", err.response || err);
-      const message =
-        err.response?.data?.message || err.message || "Network/Server error";
-      return { success: false, message };
+      return {
+        success: false,
+        message:
+          err.response?.data?.message ||
+          "Server error. Please try again.",
+      };
     }
-  };
+  };  
 
   const logoutUser = () => {
     localStorage.removeItem("token");
@@ -172,6 +162,7 @@ const StoreContextProvider = (props) => {
     loginUser,
     logoutUser,
     user,
+    setUser,
     token,
     setToken,
     url,

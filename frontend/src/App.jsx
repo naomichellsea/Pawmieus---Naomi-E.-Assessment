@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'; 
+import axios from 'axios';
 import Home from './pages/Home/Home';
 import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
@@ -21,24 +22,42 @@ const App = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  const { token, setToken, setUser } = useContext(StoreContext);
 
-  //Get setToken from Context so we can save the login
-  const { setToken } = useContext(StoreContext); 
-  
   useEffect(() => {
-    const token = searchParams.get("token");
-    if (token) {
-      localStorage.setItem("token", token); 
-      setToken(token); 
-      navigate("/"); //Clear URL
-      toast.success("Google Login Successful!");
+    const tokenFromURL = searchParams.get("token");
+    if (tokenFromURL) {
+      localStorage.setItem("token", tokenFromURL);
+      setToken(tokenFromURL);
+  
+      axios.get("http://localhost:3000/api/user/me", {
+        headers: { Authorization: `Bearer ${tokenFromURL}` }
+      })
+      .then(res => {
+        if (res.data.success) {
+          setUser(res.data.user);
+          localStorage.setItem("user", JSON.stringify(res.data.user));
+          toast.success("Google Login Successful!");
+        } else {
+          localStorage.removeItem("token");
+          toast.error("Failed to fetch user data");
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        localStorage.removeItem("token");
+        toast.error("Login error!");
+      })
+      .finally(() => {
+        navigate("/"); // Clear token from URL
+      });
     }
-  }, [searchParams, navigate, setToken]); 
-
+  }, [searchParams, navigate, setToken, setUser]);
+  
   return (
     <>
       <ToastContainer />
-      {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : null}
+      {showLogin && <LoginPopup setShowLogin={setShowLogin} />}
       <div className="app">
         <Navbar setShowLogin={setShowLogin} />
         <Routes>

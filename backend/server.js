@@ -21,7 +21,7 @@ console.log("🔹 PORT:", process.env.PORT || 4000);
 const app = express();
 const port = process.env.PORT || 4000;
 // Allow multiple localhost origins
-const allowedOrigins = ["http://localhost:5173", "http://localhost:5174", "http://localhost:5175", "http://localhost:5180"];
+const allowedOrigins = ["http://localhost:5173", "http://localhost:5174",];
 
 app.use(cors({
   origin: function(origin, callback) {
@@ -58,7 +58,16 @@ app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: 'http://localhost:5173' }), 
   (req, res) => {
 
-    const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET);
+    const token = jwt.sign(
+      {
+        id: req.user._id,
+        role: req.user.role,
+        email: req.user.email
+      },
+      process.env.JWT_SECRET,
+      { expiresIn: "7d" }
+    );
+    
 
     res.redirect(`http://localhost:5173/?token=${token}`);
   }

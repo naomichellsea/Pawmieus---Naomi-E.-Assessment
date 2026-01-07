@@ -6,10 +6,11 @@ import { StoreContext } from '../../Context/StoreContext';
 
 const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState('home');
-  
-  const { getTotalCartAmount, token, logoutUser } = useContext(StoreContext); 
-  
+  const { getTotalCartAmount, token, logoutUser, user } = useContext(StoreContext);
   const navigate = useNavigate();
+
+  const ADMIN_EMAIL = "chellsea.espiritu@gmail.com"; 
+  const ADMIN_PANEL_URL = "http://localhost:5174"; 
 
   return (
     <nav className="navbar">
@@ -31,6 +32,12 @@ const Navbar = ({ setShowLogin }) => {
       </ul>
 
       <div className="navbar-right">
+
+        {user && user.email === ADMIN_EMAIL && (
+          <a href={ADMIN_PANEL_URL} target="_blank" rel="noopener noreferrer" className="navbar-search-icon" title="Go to Admin Panel">
+            <img src={assets.admin_logo} alt="Admin Panel" className="navbar-icon admin-icon" />
+          </a>
+        )}
 
         <Link to="/cart" className="navbar-search-icon">
           <img src={assets.basket_icon} alt="Cart" className="navbar-icon" />
