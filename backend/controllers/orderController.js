@@ -1,6 +1,4 @@
 import Order from "../models/orderModel.js";
-import Razorpay from "razorpay";
-import crypto from "crypto";
 
 
 export const placeOrder = async (req, res) => {
