@@ -41,10 +41,11 @@ export const getUserOrders = async (req, res) => {
   }
 };
 
-//Fetch All Orders (Admin Panel)
 export const getAllOrders = async (req, res) => {
   try {
-    const orders = await Order.find().sort({ createdAt: -1 });
+    const orders = await Order.find()
+      .populate("user", "name email role")
+      .sort({ createdAt: -1 });
 
     res.status(200).json({ success: true, data: orders });
   } catch (error) {
@@ -52,6 +53,7 @@ export const getAllOrders = async (req, res) => {
     res.status(500).json({ success: false, message: "Failed to fetch orders" });
   }
 };
+
 
 //Update Order Status
 export const updateOrderStatus = async (req, res) => {

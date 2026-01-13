@@ -21,7 +21,9 @@ const StoreContextProvider = (props) => {
   const currency = "AED"; 
   const deliveryCharge = 30; 
 
-  const [token, setToken] = useState(localStorage.getItem("token") || null);
+  const [token, setToken] = useState(() => {
+    return localStorage.getItem("adminToken") || localStorage.getItem("token") || null;
+  });  
 
   const normalizeId = (v) => (v === undefined || v === null ? "" : String(v));
 
@@ -55,9 +57,10 @@ const StoreContextProvider = (props) => {
       }
   
       // SAVE AUTH
+      localStorage.setItem("adminToken", token); 
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
-  
+
       setToken(token);
       setUser(user);
   

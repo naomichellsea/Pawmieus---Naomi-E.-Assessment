@@ -10,20 +10,20 @@ passport.use(new GoogleStrategy({
   },
   async (accessToken, refreshToken, profile, done) => {
     try {
-      // 1. Check if user exists by Google ID
+      //Check if user exists by Google ID
       let user = await User.findOne({ googleId: profile.id });
       
       if (!user) {
-        // 2. If not, check if user exists by Email (to merge accounts)
+        //If not, check if user exists by Email (to merge accounts)
         const existingEmail = await User.findOne({ email: profile.emails[0].value });
         
         if (existingEmail) {
-            // Link Google ID to existing account
+            //Link Google ID to existing account
             existingEmail.googleId = profile.id;
             await existingEmail.save();
             return done(null, existingEmail);
         } else {
-            // 3. Create new user
+            //Create new user
             user = new User({
               googleId: profile.id,
               name: profile.displayName,

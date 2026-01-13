@@ -49,7 +49,7 @@ const Appointments = () => {
       const data = await response.json();
 
       if (response.ok) {
-        setConfirmationMessage(data.message || 'Your appointment has been booked successfully!');
+        setConfirmationMessage(data.message || 'Your appointment has been booked successfully <3 ');
         setPetName('');
         setOwnerName('');
         setContact('');
@@ -71,7 +71,7 @@ const Appointments = () => {
     <div className="appointments-container">
       <div className="heading-section">
         <h6 className="text-primary text-uppercase">Book an Appointment</h6>
-        <h1 className="display-5 text-uppercase mb-0">Reserve a Spot for Your Furry Friend!</h1>
+        <h1 className="display-5 text-uppercase mb-0">Secure a cozy spot for your pup !</h1>
       </div>
       
       <form className="appointment-form" onSubmit={handleSubmit}>

@@ -16,7 +16,7 @@ const Trainer = () => {
 
   return (
     <div className="trainer-page">
-      <h2 className="text-center mb-5">Professional Dog Training Videos</h2>
+      <h2 className="text-center mb-5">Paws-itively Perfect Manners</h2>
       <div className="row">
         {trainers.map((trainer) => (
           <div key={trainer.id} className="col-md-3 mb-4">

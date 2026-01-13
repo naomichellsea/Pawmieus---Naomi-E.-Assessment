@@ -65,7 +65,7 @@ const PetMatch = () => {
 
   return (
     <div className="petmatch-container">
-      <h1 className="petmatch-title">Find the Best Products for Your Pet</h1>
+      <h1 className="petmatch-title">Spot your pup’s breed & snag the paws-itively best goodies</h1>
 
       <div className="upload-section">
         <input id="file-upload" type="file" accept="image/*" onChange={handleFileChange} hidden />
