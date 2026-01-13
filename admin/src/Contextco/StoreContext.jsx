@@ -73,7 +73,6 @@ const StoreContextProvider = (props) => {
           return { success: true, user: responseData.user };
         }
 
-        //If no user in response but success, still return success
         return { success: true, message: "Logged in (no user returned)" };
       } else {
         console.log("🔁 [StoreContext] backend returned failure:", responseData);

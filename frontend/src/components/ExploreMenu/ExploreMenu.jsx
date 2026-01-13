@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 
 const ExploreMenu = ({ category, setCategory }) => {
   const services_list = [
-    { menu_image: '/images/Fluff.png', description: 'Premium grooming for a clean, healthy, and radiant pet.', link: '/appointments' },  // Update the link here
-    { menu_image: 'images/Munch.png', description: 'Nutritious and delicious meals for your pet’s well-being.', link: '/petfood' },  // Update the link here
-    { menu_image: 'images/Tail.png', description: 'Expert training videos to nurture a well-behaved companion.', link: '/trainer' },  // Update the link here
-    { menu_image: 'images/Sniff.png', description: 'Smart recommendations tailored to your pet’s breed and needs.', link: '/petmatch' }  // Update the link here
+    { menu_image: '/images/Fluff.png', description: 'Premium grooming for a clean, healthy, and radiant pet.', link: '/appointments' },  
+    { menu_image: 'images/Munch.png', description: 'Nutritious and delicious meals for your pet’s well-being.', link: '/petfood' },  
+    { menu_image: 'images/Tail.png', description: 'Expert training videos to nurture a well-behaved companion.', link: '/trainer' }, 
+    { menu_image: 'images/Sniff.png', description: 'Smart recommendations tailored to your pet’s breed and needs.', link: '/petmatch' } 
   ];
 
   return (
     <div className='explore-menu' id='explore-menu'>
-      <h1>Our Excellent Pet Care Services</h1>
-      <p className='explore-menu-text'>Choose from our exceptional pet care services, designed to keep your furry friends happy, healthy, and well cared for.</p>
+      <h1>Love in Every Paw Print</h1>
+      <p className='explore-menu-text'>Explore our cozy care services made with love! We’re here to make sure your little ones stay extra happy, super healthy, and feel like the royalty they are.</p>
       <div className="explore-menu-list">
         {services_list.map((item, index) => {
           return (

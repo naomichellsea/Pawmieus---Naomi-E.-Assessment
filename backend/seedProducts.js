@@ -1,8 +1,7 @@
-// seedProducts.js
 import mongoose from "mongoose";
 import dotenv from 'dotenv';
 dotenv.config();
-import foodModel from "./models/foodModel.js"; // adjust path if needed
+import foodModel from "./models/foodModel.js";
 
 dotenv.config();
 
@@ -14,11 +13,9 @@ const seed = async () => {
     });
     console.log("Connected to MongoDB");
 
-    // ⚡ Clear existing products
     await foodModel.deleteMany({});
     console.log("Old products cleared");
 
-    // ⚡ Seed products
     const products = [
       {
         name: "Royal Canin Puppy",

@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
-import User from './models/userModel.js'; // ⚠️ IMPORTANT: Ensure this path has .js at the end
+import User from './models/userModel.js';
 
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
@@ -14,11 +14,10 @@ passport.use(new GoogleStrategy({
       let user = await User.findOne({ googleId: profile.id });
       
       if (!user) {
-        //If not, check if user exists by Email (to merge accounts)
         const existingEmail = await User.findOne({ email: profile.emails[0].value });
         
         if (existingEmail) {
-            //Link Google ID to existing account
+            //Google ID to existing account
             existingEmail.googleId = profile.id;
             await existingEmail.save();
             return done(null, existingEmail);

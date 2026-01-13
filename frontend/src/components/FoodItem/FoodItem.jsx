@@ -7,7 +7,6 @@ const FoodItem = ({ image, name, price, desc , id }) => {
 
     const { cartItems = {}, addToCart, removeFromCart, url, currency } = useContext(StoreContext);
 
-    //Ensure cartItems[id] is a valid number or default to 0
     const itemCount = cartItems[id] || 0;
 
     return (

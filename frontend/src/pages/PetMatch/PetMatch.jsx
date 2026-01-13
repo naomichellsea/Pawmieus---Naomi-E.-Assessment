@@ -89,7 +89,7 @@ const PetMatch = () => {
             {products.map((product) => (
               <div key={product._id} className="product-card">
                 <img 
-  src={product.image.startsWith("http") ? product.image : `http://localhost:4000/images/${product.image}`}
+  src={product.image.startsWith("http") ? product.image : `http://localhost:3000/images/${product.image}`}
   alt={product.name} 
   className="product-image"
 />

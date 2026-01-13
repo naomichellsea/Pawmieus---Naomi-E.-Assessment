@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
 export const connectDB = async () => {
-  //Check if the URL is loaded from .env
   if (!process.env.MONGO_URL) {
     console.error("MONGO_URL not found in .env. Cannot connect to database.");
     process.exit(1); 

@@ -81,6 +81,7 @@ app.use("/api/orders", orderRouter);
 app.use("/api/appointments", appointmentRouter);
 app.use("/api/detect", detectBreedRouter);
 
+
 app.get("/", (req, res) => {
   res.send("API is working!");
 });
