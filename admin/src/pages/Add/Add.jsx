@@ -31,7 +31,7 @@ const Add = () => {
         formData.append("price", Number(data.price));
         formData.append("category", data.category);
         formData.append("image", image);
-        formData.append("breeds", JSON.stringify(data.breeds)); //Convert breeds array to JSON string
+        formData.append("breeds", JSON.stringify(data.breeds)); 
 
         const response = await axios.post(`${url}/api/food/add`, formData);
         if (response.data.success) {
@@ -41,7 +41,7 @@ const Add = () => {
                 description: "",
                 price: "",
                 category: data.category,
-                breeds: [] //Reset breeds after submission
+                breeds: [] 
             });
             setImage(false);
         } else {
@@ -55,7 +55,6 @@ const Add = () => {
         setData(data => ({ ...data, [name]: value }));
     };
 
-    //Handle Multiple Breed Selection
     const handleBreedSelection = (event) => {
         const selectedOptions = Array.from(event.target.selectedOptions, option => option.value);
         setData(data => ({ ...data, breeds: selectedOptions }));

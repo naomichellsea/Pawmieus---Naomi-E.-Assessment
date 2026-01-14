@@ -9,21 +9,21 @@ import { StoreContext } from '../../Contextco/StoreContext';
 const Orders = () => {
   const [orders, setOrders] = useState([]);
   const { url, token, currency } = useContext(StoreContext);
-  console.log("🔑 Current Admin Token:", token);
+  console.log("Current Admin Token:", token);
 
   useEffect(() => {
     if (!url) return;
   
     if (!token) {
-      console.error('❌ No token found. Cannot fetch orders.');
+      console.error('No token found. Cannot fetch orders.');
       toast.error('Admin not logged in');
       return;
     }
   
     const fetchAllOrders = async () => {
       try {
-        console.log('📡 fetching orders from:', `${url}/api/orders/list`);
-        console.log('🔑 Using token:', token);
+        console.log('fetching orders from:', `${url}/api/orders/list`);
+        console.log(' Using token:', token);
   
         const response = await axios.get(`${url}/api/orders/list`, {
           headers: { Authorization: `Bearer ${token}` },
@@ -38,7 +38,7 @@ const Orders = () => {
           toast.error(response.data?.message || 'Error fetching orders');
         }
       } catch (error) {
-        console.error('🔴 Error fetching orders:', error.response || error);
+        console.error('Error fetching orders:', error.response || error);
         toast.error('Failed to fetch orders');
       }
     };

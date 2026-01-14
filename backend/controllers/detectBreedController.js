@@ -14,14 +14,12 @@ export const detectBreed = async (req, res) => {
 
         const imagePath = path.join(__dirname, "../uploads", req.file.filename);
 
-        //Check if the image file exists before proceeding
         if (!fs.existsSync(imagePath)) {
             return res.status(404).json({ error: "Uploaded image not found" });
         }
 
         console.log(`Processing image: ${imagePath}`);
 
-        //Execute Python script
         const pythonProcess = spawn("python3", [
             path.join(__dirname, "../detect_breed.py"),
             imagePath

@@ -4,13 +4,12 @@ from ultralytics import YOLO
 
 image_path = sys.argv[1]
 
-#Ensure the image exists before running inference
 if not os.path.exists(image_path):
     print("Error: Image file not found")
     sys.exit(1)
 
 script_dir = os.path.dirname(os.path.abspath(__file__))  
-model_path = os.path.join(script_dir, "best.pt")  #Path to YOLO model
+model_path = os.path.join(script_dir, "best.pt") 
 
 if not os.path.exists(model_path):
     print("Error: Model file not found")
@@ -19,7 +18,7 @@ if not os.path.exists(model_path):
 model = YOLO(model_path)
 
 try:
-    results = model(image_path, verbose=False)  #verbose=False` to reduce unwanted logs
+    results = model(image_path, verbose=False)  
 
     detected_breeds = set()
 
